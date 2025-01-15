@@ -4,10 +4,10 @@ import styled, { keyframes } from "styled-components";
 const Hero = () => {
   return (
     <Wrapper>
+        <h1 className='logo'>AXON<span>LINK</span> </h1>
       <div className="hero-container">
-        <h1>AXONLINK</h1>
         <div className="text-container">
-          <h1 className="moto1">Data for Everyone...</h1>
+          <h2 className="moto1">Data for Everyone...</h2>
           <h2 className="moto2">Anywhere... Anytime...</h2>
         </div>
         <Animation />
@@ -43,32 +43,40 @@ const Opacity = keyframes`
 // Styled Wrapper
 const Wrapper = styled.section`
   .hero-container {
-    border: 5px solid blue;
     height: 100vh;
     display: flex;
     align-items: center;
   }
 
   .text-container {
-    border: 1px solid red;
-    margin-left: 30px;
-    width: 40%;
+    margin-left: 40px;
+    width: 50%;
+  
   }
 
   .moto1 {
-    font-size: 26px;
+    font-size: 4rem;
     font-weight: 700;
-    color: var(--orange);
     animation: ${MoveLeft} 1s ease-out;
+    color: var(--highlights2);
+    padding-bottom:0.8rem
   }
 
   .moto2 {
-    font-size: 23px;
-    font-weight: 400;
-    color: var(--orange);
-    border: 1px solid red;
-    padding-left: 3rem;
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding-left: 15rem;
     animation: ${Opacity} 4s ease-in;
+    color:var(--grey-400)
+  }
+
+  .logo{
+    padding:5px 0 0 5px;
+    color:var(--highlights2);
+    font-size:2rem;
+    span{
+      color:var(--grey-400)
+    }
   }
 `;
 

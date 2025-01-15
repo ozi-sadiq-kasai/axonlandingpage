@@ -49,9 +49,10 @@ html {
   --green-dark: #0f5132;
 
   /* rest of the vars */
-  --backgroundColor: var(--grey-50);
+  --backgroundColor: var(--grey-200);
     --headingColor: var(--grey-900);
-    --highlights:#f9bc60;
+    --highlights1:#91c499;
+    --highlights2:#52489C;
     --textColor: var(--grey-600);
     --borderRadius: 0.25rem;
     --letterSpacing: 1px;
