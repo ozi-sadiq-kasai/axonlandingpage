@@ -48,6 +48,9 @@ const Wrapper = styled.section`
   @media ${({ theme }) => theme.device.mobile} {
     overflow: hidden;
   }
+  @media ${({ theme }) => theme.device.tablet} {
+    overflow: hidden;
+  }
 
   .hero-container {
     margin-top: 14rem;
@@ -57,6 +60,10 @@ const Wrapper = styled.section`
     margin-left: 40px;
     width: 60%;
     @media ${({ theme }) => theme.device.mobile} {
+      margin-left: 5px;
+      width: 100%;
+    }
+    @media ${({ theme }) => theme.device.tablet} {
       margin-left: 5px;
       width: 100%;
     }
@@ -71,6 +78,9 @@ const Wrapper = styled.section`
     @media ${({ theme }) => theme.device.mobile} {
       font-size: 2rem;
     }
+    @media ${({ theme }) => theme.device.tablet} {
+      font-size: 3rem;
+    }
   }
 
   .moto2 {
@@ -82,6 +92,10 @@ const Wrapper = styled.section`
     @media ${({ theme }) => theme.device.mobile} {
       font-size: 1.4rem;
       padding-left: 3rem;
+    }
+    @media ${({ theme }) => theme.device.tablet} {
+      font-size: 2rem;
+      padding-left: 10rem;
     }
   }
 

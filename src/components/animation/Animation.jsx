@@ -58,6 +58,9 @@ const Wave = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
     margin-left: 180px;
   }
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-left: 50px;
+  }
 `;
 
 export default Animation;
