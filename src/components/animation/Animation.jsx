@@ -42,6 +42,7 @@ const Wave = styled.div`
   border-radius: 43%;
   background: var(--highlights1);
   animation: ${drift} 15000ms infinite linear;
+
   
   &.-two {
     background: #a5d8ff;
@@ -55,7 +56,7 @@ const Wave = styled.div`
 
   /* Disable animation for mobile screens */
   @media ${({ theme }) => theme.device.mobile} {
-    display: none;
+    margin-left: 180px;
   }
 `;
 
