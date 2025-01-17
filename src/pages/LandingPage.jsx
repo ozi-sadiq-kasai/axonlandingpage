@@ -9,7 +9,7 @@ const LandingPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/about');
-    },8000);
+    }, 7000);
     return () => clearTimeout(timer);
   }, [navigate]);
 
@@ -56,6 +56,8 @@ const Opacity = keyframes`
 // Styled Wrapper
 const Wrapper = styled.section`
   height: 100vh;
+  padding: 0;
+
   @media ${({ theme }) => theme.device.mobile} {
     overflow: hidden;
   }

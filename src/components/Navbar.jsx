@@ -10,8 +10,8 @@ const NavBar = () => {
   );
 };
 const Wrapper = styled.section`
+  padding-left: 1rem;
   .logo {
-    padding: 5px 0 0 5px;
     color: var(--highlights2);
     font-size: 2rem;
     span {

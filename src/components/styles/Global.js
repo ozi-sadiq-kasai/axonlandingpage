@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 /* ============= GLOBAL CSS =============== */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 *,
@@ -53,9 +53,9 @@ html {
     --headingColor: var(--grey-900);
     --highlights1:#91c499;
     --highlights2:#52489C;
-    --textColor: var(--grey-600);
+    --textColor: var(--grey-50);
     --borderRadius: 0.25rem;
-    --letterSpacing: 1px;
+    --letterSpacing: 1.5px;
     --transition: 0.3s ease-in all;
     --max-width: 1120px;
     --fixed-Width: 600px;
@@ -79,7 +79,12 @@ body {
   color: var(--textColor);
 }
 p {
-  margin: 0;
+  margin-bottom: 1rem;
+  max-width: 60rem;
+  font-size:1.2rem;
+  letter-spacing:var(--letterSpacing);
+  font-weight:100;
+  color:#A6A6A6;
 }
 h1,
 h2,
@@ -87,11 +92,11 @@ h3,
 h4,
 h5 {
   margin: 0;
-  font-family: var(--headingColor);
-  font-weight: 400;
-  line-height: 1;
-  text-transform: capitalize;
-  letter-spacing: var(--letterSpacing);
+    margin-bottom: 1.38rem;
+    font-family: var(--headingFont);
+    font-weight: 400;
+    line-height: 1.3;
+    text-transform: capitalize;
 }
 
 h1 {
