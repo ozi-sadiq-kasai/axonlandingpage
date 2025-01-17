@@ -1,11 +1,22 @@
 import Animation from '../components/animation/Animation';
 import styled, { keyframes } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/about');
+    },8000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
   return (
     <Wrapper>
       <h1 className='logo'>
-        AXON<span>LINK</span>{' '}
+        AXON<span>LINK</span>
       </h1>
       <div className='hero-container'>
         <div className='text-container'>
