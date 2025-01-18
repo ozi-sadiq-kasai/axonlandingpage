@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 /* ============= GLOBAL CSS =============== */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 *,
@@ -55,11 +55,11 @@ html {
     --highlights2:#52489C;
     --textColor: var(--grey-50);
     --borderRadius: 0.25rem;
-    --letterSpacing: 1.5px;
+    --letterSpacing: 1px;
     --transition: 0.3s ease-in all;
     --max-width: 1120px;
     --fixed-Width: 600px;
-    --font-family: Roboto;
+    --font-family: Lato;
 
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -74,17 +74,16 @@ html {
 body {
   background: var(--backgroundColor);
   font-family: var(--font-family);
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 200;
+  line-height: 1.5rem;
   color: var(--textColor);
 }
 p {
   margin-bottom: 1rem;
-  max-width: 60rem;
-  font-size:1.2rem;
-  letter-spacing:var(--letterSpacing);
+  max-width: 50%;
+  font-size:1.25rem;
+  /* letter-spacing:var(--letterSpacing); */
   font-weight:100;
-  color:#A6A6A6;
 }
 h1,
 h2,

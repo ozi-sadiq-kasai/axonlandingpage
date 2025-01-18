@@ -2,49 +2,67 @@ import Navbar from '../components/NavBar';
 import styled from 'styled-components';
 import Features from './Features';
 import Challanges from './Challanges';
-
+import Footer from './Footer';
 
 const About = () => {
-
   return (
     <Wrapper>
       <Navbar />
       <StyledContent>
-      <h2>Streamline Trials, Eliminate Chaos, Empower Results</h2>
-      <p>
-        Axonlink eliminates manual processes, unaudited tools like spreadsheets,
-        and untrackable communications such as email. By centralizing and
-        streamlining workflows, it enhances trial speed, efficiency,
-        adaptability, and quality. The system includes two primary components: a
-        user-friendly app for participants and a robust management portal for
-        scheduling and oversight.
-      </p>
+        <h2>Streamline Trials and Eliminate Chaos.</h2>
+        <p>
+          Axonlink removes the need for manual processes and unreliable tools
+          like spreadsheets. It also eliminates untrackable communication
+          methods, such as email. <br/>By centralizing workflows in one platform, it
+          ensures better organization and visibility. This approach accelerates
+          trial timelines, improves efficiency, and enhances adaptability. With
+          Axonlink, you can achieve higher-quality results while simplifying
+          your processes.
+        </p>
+        <button className='btn'>Join the Waiting List</button>
       </StyledContent>
       <Features />
       <Challanges />
+      <Footer />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-
- 
+  height: 100vh;
 `;
 const StyledContent = styled.section`
   background-color: var(--highlights2);
-  padding: 1rem 2rem;
-  height: 60%;
-
+  padding: 1rem 2rem 0 2rem;
+  height: 60vh;
+  /* @media ${({theme})=>theme.device.mobile}{
+height:100vh;
+  } */
   h2 {
-  
-    color: var(--primary);
+    font-size: 3rem;
+    color: #a6a6a6;
+    @media ${({theme})=>theme.device.mobile}{
+      font-size:2rem;
+    }
   }
 
   p {
-    font-size: 1.6rem;
-    font-weight:200;
-    line-height: 1.1;
-    /* color: var(--text-secondary); */
+    font-size: 1.3rem;
+    max-width: 62%;
+    line-height: 1.75rem;
+    @media ${({theme})=>theme.device.mobile}{
+      font-size: 1rem;
+      max-width: 100%;
+  }
+  }
+  button {
+    position: relative;
+    top:6.7rem;
+    left: 42%;
+    padding: 15px 25px;
+    @media ${({theme})=>theme.device.mobile}{
+
+}
   }
 `;
 export default About;

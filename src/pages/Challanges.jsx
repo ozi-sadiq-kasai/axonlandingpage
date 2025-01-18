@@ -13,12 +13,13 @@ const Challenges = () => {
             entry.target.classList.add('animate');
             entry.target.classList.add(`animate-${direction}`);
           } else {
+            const direction = entry.target.getAttribute('data-direction');
             entry.target.classList.remove('animate');
-            entry.target.classList.remove('animate-left', 'animate-right');
+            entry.target.classList.remove(`animate-${direction}`);
           }
         });
       },
-      { threshold: 0.7 }
+      { threshold: 0.45 }
     );
 
     blocks.forEach((block) => observer.observe(block));
@@ -81,7 +82,6 @@ const StyledSection = styled.div`
     width: 300px;
     height: 300px;
     opacity: 0;
-    /* transform: translateX(-10px); */
     transition: all 0.7s ease-in-out;
   }
   li.animate {
