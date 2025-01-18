@@ -1,8 +1,11 @@
 import Navbar from '../components/NavBar';
 import styled from 'styled-components';
 import Features from './Features';
+import Challanges from './Challanges';
+
 
 const About = () => {
+
   return (
     <Wrapper>
       <Navbar />
@@ -18,12 +21,13 @@ const About = () => {
       </p>
       </StyledContent>
       <Features />
+      <Challanges />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  /* height: 100vh; */
+
  
 `;
 const StyledContent = styled.section`
