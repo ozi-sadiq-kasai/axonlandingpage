@@ -30,7 +30,7 @@ const Challenges = () => {
   return (
     <Wrapper>
       <h2>Challenges</h2>
-      <StyledSection>
+      <StyledList>
         <li className='animate-target' data-direction='left'>
           <h3>Inefficient Process</h3>
           <p>
@@ -61,43 +61,46 @@ const Challenges = () => {
             trial-related information.
           </p>
         </li>
-      </StyledSection>
+      </StyledList>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+background-color:var(--grey-50);
+h2{
+  color:red;
+  text-align:center;
+}
+`;
 
-const StyledSection = styled.div`
+const StyledList = styled.ul`
   margin: 0 auto;
   border: 1px solid red;
-  width: 90%;
+  width: 80%;
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 1rem;
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-content:center;
 
   li {
     border: 2px solid purple;
-    width: 300px;
+    width: 80%;
     height: 300px;
     opacity: 0;
     transition: all 0.7s ease-in-out;
+    color:black;
+    margin:0 auto;
   }
   li.animate {
     opacity: 1;
   }
   li.animate-left {
-    transform: translateX(-20px);
+    transform: translateX(20px);
+    background-color:red;
   }
   li.animate-right {
-    transform: translateX(20px);
-  }
-  li.animate-left {
     transform: translateX(-20px);
-  }
-  li.animate-right {
-    transform: translateX(20px);
   }
 `;
 

@@ -42,6 +42,7 @@ const Wrapper = styled.section`
   }
 `;
 const StyledContent = styled.div`
+
   padding: 1rem 2rem;
   h2 {
     text-align: center;
@@ -65,7 +66,17 @@ const StyledPara = styled.div`
       color:black;
       font-weight:800
     }
+   
   }
+  @media ${({ theme }) => theme.device.mobile} {
+      flex-direction:column;
+      border: 1px solid #000;
+
+  p{
+    text-align:center;
+    width:100%;
+  }
+    }
 `;
 
 export default Features;

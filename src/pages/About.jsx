@@ -3,13 +3,26 @@ import styled from 'styled-components';
 import Features from './Features';
 import Challanges from './Challanges';
 import Footer from './Footer';
+import Modal from '../components/Modal';
+import { useState } from 'react';
 
 const About = () => {
+  const [showModal,setShowModal] = useState(false)
+
+  const handleOpenModal = ()=>{
+    setShowModal(true)
+    console.log('modalOpen',showModal)
+  }
+  const handleCloseModal = ()=>{
+    setShowModal(false)
+    console.log('modalclosed',showModal)
+  }
+
   return (
     <Wrapper>
       <Navbar />
       <StyledContent>
-        <h2>Streamline Trials and Eliminate Chaos.</h2>
+        <h2>StreamLine Trials and Eliminate Chaos.</h2>
         <p>
           Axonlink removes the need for manual processes and unreliable tools
           like spreadsheets. It also eliminates untrackable communication
@@ -20,11 +33,12 @@ const About = () => {
           Axonlink, you can achieve higher-quality results while simplifying
           your processes.
         </p>
-        <button className='btn'>Join the Waiting List</button>
+        <button className='btn' onClick={handleOpenModal}>Join the Waiting List</button>
       </StyledContent>
       <Features />
       <Challanges />
       <Footer />
+  {showModal && <Modal onClose={handleCloseModal}/>}
     </Wrapper>
   );
 };
@@ -68,9 +82,10 @@ const StyledContent = styled.section`
   }
   button {
     position: relative;
-    top: 5rem;
-    left: 40%;
+    top: 6.3rem;
+    left: 43%;
     padding: 15px 25px;
+    background-color:var(--highlights1);
     @media ${({ theme }) => theme.device.mobile} {
       top: 1rem;
       left: 23.5%;
