@@ -9,7 +9,7 @@ const ResearchSchema = new mongoose.Schema(
     },
     ResearchType: {
       type: String,
-      enum: ['All Researches', 'Typhoid', 'Kidney', 'Malaria'],
+      enum: ['Covid', 'Typhoid', 'Kidney', 'Malaria','All Researches'],
       default: 'All Researches',
     },
   },

@@ -8,8 +8,8 @@ const Modal = ({ onClose }) => {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '', // Default phone value
-    research: '', // Default research value
+    phone: '',
+    ResearchType: '', 
   });
 
   const [loading, setLoading] = useState(false);
@@ -25,6 +25,7 @@ const Modal = ({ onClose }) => {
     setLoading(true);
     setError('');
     try {
+      // Use formData directly, as keys now match backend expectations
       const response = await axios.post(
         'http://localhost:4000/createResearch',
         formData
@@ -84,14 +85,12 @@ const Modal = ({ onClose }) => {
           <label htmlFor="researches">Research Areas of Interest:</label>
           <select
             id="dropdown"
-            name="research"
-            value={formData.research}
+            name="ResearchType"
+            value={formData.ResearchType}
             onChange={handleChange}
           >
-            <option value="" disabled>
-              -- Select an option --
-            </option>
-            <option value="All Researches">All Researches</option>
+            <option value="" disabled> -- Select an option -- </option>
+            <option value="Covid">Covid</option>
             <option value="Typhoid">Typhoid</option>
             <option value="Kidney">Kidney</option>
             <option value="Malaria">Malaria</option>

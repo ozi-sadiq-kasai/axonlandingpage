@@ -5,7 +5,7 @@ const createResearch = async (req, res) => {
     const { firstName, lastName, email, phone, ResearchType } = req.body;
 
     const validResearchTypes = [
-      'All Researches',
+      'Covid',
       'Typhoid',
       'Kidney',
       'Malaria',
