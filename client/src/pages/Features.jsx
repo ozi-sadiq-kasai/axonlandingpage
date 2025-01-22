@@ -36,47 +36,55 @@ const Features = () => {
 
 const Wrapper = styled.section`
   background-color: var(--grey-50);
-  color:var(--grey-600);
+  color: var(--grey-600);
+  @media ${({ theme }) => theme.device.mobile} {
+    padding: 1rem 1.2rem;
+  }
   @media ${({ theme }) => theme.device.tablet} {
     padding: 1rem 1.2rem;
   }
 `;
 const StyledContent = styled.div`
-
-  padding: 1rem 2rem;
+  /* 
+  padding: 1rem 2rem; */
   h2 {
     text-align: center;
-  }
-  @media ${({ theme }) => theme.device.tablet} {
-    padding: 0;
+    @media ${({ theme }) => theme.device.mobile} {
+      margin-bottom: 0;
+    }
+    @media ${({ theme }) => theme.device.tablet} {
+      margin-bottom: 0;
+    }
   }
 `;
 const StyledPara = styled.div`
   display: flex;
   padding: 0 1rem;
   gap: 1.3rem;
+  span {
+      color: black;
+      font-weight: 800;
+    }
   @media ${({ theme }) => theme.device.tablet} {
     padding: 0;
-    p{
-      text-align:left;
-      padding:0 0.6rem;
-      margin:0;
+    width:100%;
+    margin:0 auto;
+    p {
+      width: 100%;
+      margin-bottom:0
     }
-    span{
-      color:black;
-      font-weight:800
-    }
-   
   }
   @media ${({ theme }) => theme.device.mobile} {
-      flex-direction:column;
-      border: 1px solid #000;
-
-  p{
-    text-align:center;
+    /* flex-direction: column; */
+    padding: 0;
     width:100%;
-  }
+    margin:0 auto;
+    p {
+      margin: 0 auto;
+      width: 100%;
+      margin-bottom:0
     }
+  }
 `;
 
 export default Features;

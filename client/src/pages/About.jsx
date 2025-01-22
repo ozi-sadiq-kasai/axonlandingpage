@@ -50,13 +50,16 @@ const StyledContent = styled.section`
   background-color: var(--highlights2);
   padding: 1rem 2rem 0 2rem;
   height: 60vh;
-
+  @media ${({ theme }) => theme.device.mobile} {
+    padding: 1rem 0 0 1rem;
+    }
   h2 {
     font-size: 3rem;
     color: #a6a6a6;
     @media ${({ theme }) => theme.device.mobile} {
       font-size: 2rem;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0rem;
+      max-width:60%;
     }
     @media ${({ theme }) => theme.device.tablet} {
       font-size: 2.2rem;
@@ -70,7 +73,7 @@ const StyledContent = styled.section`
     line-height: 1.75rem;
     @media ${({ theme }) => theme.device.mobile} {
       font-size: 1rem;
-      max-width: 100%;
+      max-width: 70%;
       margin-bottom: 0;
       line-height: 1.57rem;
     }
@@ -84,11 +87,12 @@ const StyledContent = styled.section`
     position: relative;
     top: 6.3rem;
     left: 43%;
+    font-weight:700;
     padding: 15px 25px;
     background-color:var(--highlights1);
     @media ${({ theme }) => theme.device.mobile} {
-      top: 1rem;
-      left: 23.5%;
+      bottom: 7rem;
+      left: 20.5%;
     }
     @media ${({ theme }) => theme.device.tablet} {
       left: 37%;

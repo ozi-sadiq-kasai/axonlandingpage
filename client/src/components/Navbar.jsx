@@ -11,17 +11,18 @@ const NavBar = () => {
 };
 const Wrapper = styled.section`
   background-color: var(--highlights2);
-  padding-left:0.1rem;
+ 
 
   .logo {
     color: var(--highlights1);
     font-size: 2.5rem;
     margin-bottom: 0;
+    padding-left:0.2rem;
     span {
       color: var(--grey-400);
     }
     @media ${({ theme }) => theme.device.mobile} {
-      font-size: 1rem;
+      font-size: 1.5rem;
       margin-bottom: 0;
     }
     @media ${({ theme }) => theme.device.tablet} {

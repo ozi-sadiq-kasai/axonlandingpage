@@ -12,7 +12,7 @@ useEffect(() => {
                 }
             });
         },
-        { threshold: 0.3 } // Trigger animation when 30% of the block is visible
+        // { threshold: 0.3 } // Trigger animation when 30% of the block is visible
     );
 
     blocks.forEach((block) => observer.observe(block));

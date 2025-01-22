@@ -1,19 +1,19 @@
 import { ThemeProvider } from "styled-components";
 
 const size = {
-  mobile: '480px',
-  tablet: '768px',
-  laptop: '1024px',
-  desktop: '1440px',
+  mobile: '576px', // Extra Small Devices (Phones)
+  tablet: '768px', // Small Devices (Tablets)
+  laptop: '1024px', // Medium Devices (Tablets and Small Laptops)
+  desktop: '1440px', // Large Devices (Desktops)
 };
 
 const theme = {
   device: {
-    mobile: `(max-width: ${size.mobile})`,
-    tablet: `(min-width: ${size.mobile}) and (max-width: ${size.tablet})`,
-    laptop: `(min-width: ${size.tablet}) and (max-width: ${size.laptop})`,
-    desktop: `(min-width: ${size.laptop}) and (max-width: ${size.desktop})`,
-    desktopLarge: `(min-width: ${size.desktop})`,
+    mobile: `(max-width: ${size.mobile})`, // Extra Small Devices
+    tablet: `(min-width: ${parseInt(size.mobile) + 1}px) and (max-width: ${size.tablet})`, // Small Devices
+    laptop: `(min-width: ${parseInt(size.tablet) + 1}px) and (max-width: ${size.laptop})`, // Medium Devices
+    desktop: `(min-width: ${parseInt(size.laptop) + 1}px) and (max-width: ${size.desktop})`, // Large Devices
+    desktopLarge: `(min-width: ${parseInt(size.desktop) + 1}px)`, // Extra Large Devices
   },
 };
 
@@ -23,8 +23,3 @@ const Theme = ({ children }) => (
 );
 
 export default Theme;
-// sm	640px	@media (min-width: 640px) { ... }
-// md	768px	@media (min-width: 768px) { ... }
-// lg	1024px	@media (min-width: 1024px) { ... }
-// xl	1280px	@media (min-width: 1280px) { ... }
-// 2xl	1536px	@media (min-width: 1536px) { ... }
