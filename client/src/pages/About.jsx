@@ -1,4 +1,4 @@
-import Navbar from '../components/NavBar';
+import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import Features from './Features';
 import Challanges from './Challanges';
