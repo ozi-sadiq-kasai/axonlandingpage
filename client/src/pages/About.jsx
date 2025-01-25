@@ -7,16 +7,16 @@ import Modal from '../components/Modal';
 import { useState } from 'react';
 
 const About = () => {
-  const [showModal,setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
-  const handleOpenModal = ()=>{
-    setShowModal(true)
-    console.log('modalOpen',showModal)
-  }
-  const handleCloseModal = ()=>{
-    setShowModal(false)
-    console.log('modalclosed',showModal)
-  }
+  const handleOpenModal = () => {
+    setShowModal(true);
+    console.log('modalOpen', showModal);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+    console.log('modalclosed', showModal);
+  };
 
   return (
     <Wrapper>
@@ -33,12 +33,14 @@ const About = () => {
           Axonlink, you can achieve higher-quality results while simplifying
           your processes.
         </p>
-        <button className='btn' onClick={handleOpenModal}>Join the Waiting List</button>
+        <button className='btn' onClick={handleOpenModal}>
+          Join the Waiting List
+        </button>
       </StyledContent>
       <Features />
       <Challanges />
       <Footer />
-  {showModal && <Modal onClose={handleCloseModal}/>}
+      {showModal && <Modal onClose={handleCloseModal} />}
     </Wrapper>
   );
 };
@@ -48,29 +50,31 @@ const Wrapper = styled.section`
 `;
 const StyledContent = styled.section`
   background-color: var(--highlights2);
-  padding: 1rem 2rem 0 2rem;
+  padding: 2rem;
   height: 60vh;
   @media ${({ theme }) => theme.device.mobile} {
     padding: 1rem 0 0 1rem;
-    }
+  }
   h2 {
     font-size: 3rem;
     color: #a6a6a6;
     @media ${({ theme }) => theme.device.mobile} {
       font-size: 2rem;
       margin-bottom: 0rem;
-      max-width:60%;
+      max-width: 60%;
     }
     @media ${({ theme }) => theme.device.tablet} {
       font-size: 2.2rem;
       margin-bottom: 0.7rem;
     }
+    @media ${({ theme }) => theme.device.laptop} {
+      text-align: center;
+    }
   }
-
   p {
     font-size: 1.3rem;
-    max-width: 62%;
-    line-height: 1.75rem;
+    max-width: 100%;
+    line-height: 2rem;
     @media ${({ theme }) => theme.device.mobile} {
       font-size: 1rem;
       max-width: 70%;
@@ -82,14 +86,19 @@ const StyledContent = styled.section`
       max-width: 80%;
       margin-bottom: 0;
     }
+    @media ${({ theme }) => theme.device.laptop} {
+      font-size: 1.5rem;
+      margin: 0 auto;
+      text-align: center;
+    }
   }
   button {
     position: relative;
     top: 6.3rem;
     left: 43%;
-    font-weight:700;
+    font-weight: 600;
     padding: 15px 25px;
-    background-color:var(--highlights1);
+    background-color: var(--highlights1);
     @media ${({ theme }) => theme.device.mobile} {
       bottom: 7rem;
       left: 20.5%;
@@ -97,6 +106,12 @@ const StyledContent = styled.section`
     @media ${({ theme }) => theme.device.tablet} {
       left: 37%;
       top: 5rem;
+    }
+    @media ${({ theme }) => theme.device.laptop} {
+      top: 22rem;
+      width: 30%;
+      font-size: 1rem;
+      left: 35%;
     }
   }
 `;

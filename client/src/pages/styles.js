@@ -1,3 +1,4 @@
+
 useEffect(() => {
     const blocks = document.querySelectorAll('.block');
     const blocksRight = document.querySelectorAll('.blocksgrey');
