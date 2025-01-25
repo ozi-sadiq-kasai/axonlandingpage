@@ -37,7 +37,7 @@ const Modal = ({ onClose }) => {
       setError('Failed to submit research. Please try again.');
     } finally {
       setLoading(false);
-      onClose();
+      if (!error) onClose()
     }
   };
 

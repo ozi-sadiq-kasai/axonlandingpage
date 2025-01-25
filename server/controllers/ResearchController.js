@@ -3,6 +3,11 @@ import Research from '../models/ResearchModel.js'
 const createResearch = async (req, res) => {
   try {
     const { firstName, lastName, email, phone, ResearchType } = req.body;
+      // Validate input
+      if (!firstName || !lastName || !email || !phone || !ResearchType) {
+        return res.status(400).json({ error: 'All fields are required' });
+      }
+  
 
     const validResearchTypes = [
       'Covid',

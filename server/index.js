@@ -11,11 +11,24 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+// CORS configuration
+const allowedOrigins = [
+  'http://localhost:5173', // Frontend dev environment
+  'https://axonlandingpage.onrender.com', // Production frontend
+];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
+    credentials: true, // Include credentials if needed
   })
 );
 
