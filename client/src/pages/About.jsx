@@ -113,6 +113,16 @@ const StyledContent = styled.section`
       font-size: 1rem;
       left: 35%;
     }
+    @media ${({ theme }) => theme.device.desktop} {
+      top: 6rem;
+      width: 30%;
+      font-size: 1rem;
+      left: 35%;
+    }
+  }
+  button:hover{
+    background-color:var(--highlights2);
+    color:var(--highlights1)
   }
 `;
 export default About;

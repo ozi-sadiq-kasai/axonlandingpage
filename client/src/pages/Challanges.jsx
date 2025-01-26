@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import { GrSchedules } from 'react-icons/gr';
+import { GoGear } from 'react-icons/go';
+import { RiUserCommunityLine } from 'react-icons/ri';
+import { IoAlarmOutline } from 'react-icons/io5';
 import { useEffect } from 'react';
 
 const Challenges = () => {
@@ -32,14 +36,24 @@ const Challenges = () => {
       <h2>Challenges</h2>
       <StyledList>
         <li className='animate-target' data-direction='left'>
-          <h3>Inefficient Process</h3>
+          <div>
+            <span>
+              <GoGear size={'24px'} color={'#91C499'} />
+            </span>
+            <h3>Inefficient Process</h3>
+          </div>
           <p>
             Replacing manual, time-consuming workflows and unaudited tools like
             spreadsheets that lack automation and reliability.
           </p>
         </li>
         <li className='animate-target' data-direction='right'>
-          <h3>Communication Gaps</h3>
+          <div>
+            <span>
+              <RiUserCommunityLine size={'24px'} color={'#91C499'} />
+            </span>{' '}
+            <h3>Communication Gaps</h3>
+          </div>
           <p>
             Eliminating untrackable communication methods (e.g., emails) to
             ensure clear, auditable, and streamlined participant and staff
@@ -47,14 +61,24 @@ const Challenges = () => {
           </p>
         </li>
         <li className='animate-target' data-direction='left'>
-          <h3>Scheduling Challenges</h3>
+          <div>
+            <span>
+              <GrSchedules size={'24px'} color={'#91C499'} />
+            </span>
+            <h3>Scheduling Challenges</h3>
+          </div>
           <p>
             Preventing scheduling errors and deviations by automating and
             adapting visit schedules to participants&apos; needs.
           </p>
         </li>
         <li className='animate-target' data-direction='right'>
-          <h3>Participant Engagement</h3>
+          <div>
+            <span>
+              <IoAlarmOutline size={'24px'} color={'#91C499'} />
+            </span>
+            <h3>Participant Engagement</h3>
+          </div>
           <p>
             Enhancing participant adherence and experience by providing a
             centralized app for reminders, schedules, and secure storage of
@@ -67,37 +91,51 @@ const Challenges = () => {
 };
 
 const Wrapper = styled.section`
-background-color:var(--grey-50);
-h2{
-  color:red;
-  text-align:center;
-}
+  background-color: var(--grey-50);
+  padding-bottom: 2.5rem;
+  h2 {
+    color: var(--grey-700);
+    text-align: center;
+    font-weight: 600;
+  }
 `;
 
 const StyledList = styled.ul`
   margin: 0 auto;
-  border: 1px solid red;
   width: 80%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  justify-content:center;
-
+  column-gap: 4rem;
+  row-gap: 2rem;
+  justify-content: center;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    h3 {
+      margin: 0;
+    }
+  }
   li {
-    border: 2px solid purple;
-    width: 80%;
-    height: 300px;
+    border: 2px solid var(--grey-300);
+    width: 100%;
+    height: 250px;
     opacity: 0;
     transition: all 0.7s ease-in-out;
-    color:black;
-    margin:0 auto;
+    color: var(--grey-500);
+    padding: 0.8rem 1rem;
+    box-shadow: var(--shadow-2);
+    overflow: hidden;
+    p {
+      max-width: 70%;
+      margin: 0 auto;
+    }
   }
   li.animate {
     opacity: 1;
   }
   li.animate-left {
     transform: translateX(20px);
-    background-color:red;
   }
   li.animate-right {
     transform: translateX(-20px);

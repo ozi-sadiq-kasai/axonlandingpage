@@ -43,9 +43,9 @@ const Modal = ({ onClose }) => {
 
   return (
     <Wrapper>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form' >
         <div>
-          <label htmlFor="fname">FirstName</label>
+          <label htmlFor="fname">FirstName:</label>
           <input
             type="text"
             name="firstName"
@@ -54,7 +54,7 @@ const Modal = ({ onClose }) => {
           />
         </div>
         <div>
-          <label htmlFor="lname">LastName</label>
+          <label htmlFor="lname">LastName:</label>
           <input
             type="text"
             name="lastName"
@@ -63,7 +63,7 @@ const Modal = ({ onClose }) => {
           />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             name="email"
@@ -72,7 +72,7 @@ const Modal = ({ onClose }) => {
           />
         </div>
         <div>
-          <label htmlFor="phone">Phone</label>
+          <label htmlFor="phone">Phone:</label>
           <input
             type="tel"
             name="phone"
@@ -96,7 +96,7 @@ const Modal = ({ onClose }) => {
             <option value="Malaria">Malaria</option>
           </select>
         </div>
-        <button type="submit" disabled={loading}>
+        <button type="submit" className='btn' disabled={loading}>
           {loading ? 'Loading...' : 'Submit'}
         </button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -116,6 +116,12 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+
+  form{
+    background-color:var(--grey-50);
+    color:var(--highlights1);
+    width:45vw;
+  }
 `;
 
 export default Modal;

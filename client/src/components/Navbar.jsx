@@ -16,6 +16,7 @@ const Wrapper = styled.section`
   .logo {
     color: var(--highlights1);
     font-size: 2.5rem;
+    font-weight:700;
     margin-bottom: 0;
     padding-left:0.2rem;
     span {

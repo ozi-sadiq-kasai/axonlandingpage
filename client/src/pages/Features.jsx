@@ -43,10 +43,19 @@ const Wrapper = styled.section`
   @media ${({ theme }) => theme.device.tablet} {
     padding: 1rem 1.2rem;
   }
+  @media ${({ theme }) => theme.device.laptop} {
+    border:1px solid red;
+  }
 `;
 const StyledContent = styled.div`
-  /* 
+/*   
   padding: 1rem 2rem; */
+  @media ${({ theme }) => theme.device.laptop} {
+      margin-top: 3rem;
+    }
+  @media ${({ theme }) => theme.device.desktop} {
+      padding-top: 3rem;
+    }
   h2 {
     text-align: center;
     @media ${({ theme }) => theme.device.mobile} {
@@ -54,6 +63,9 @@ const StyledContent = styled.div`
     }
     @media ${({ theme }) => theme.device.tablet} {
       margin-bottom: 0;
+    }
+    @media ${({ theme }) => theme.device.desktop} {
+     font-weight: 600;
     }
   }
 `;
