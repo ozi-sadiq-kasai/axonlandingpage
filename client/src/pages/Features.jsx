@@ -74,8 +74,11 @@ const StyledPara = styled.div`
   padding: 0 1rem;
   gap: 1.3rem;
   span {
-      color: black;
-      font-weight: 800;
+      color: var(--highlights-900);
+      font-weight: 700;
+    }
+    p{
+      font-weight:350;
     }
   @media ${({ theme }) => theme.device.tablet} {
     padding: 0;
