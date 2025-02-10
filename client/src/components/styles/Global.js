@@ -47,7 +47,7 @@ html {
   --green-dark: #0f5132;
 
   /* rest of the vars */
-  --backgroundColor: var(--grey-200);
+  --backgroundColor: white;
     --headingColor: var(--grey-900);
     --highlights1:#91c499;
     --highlights2:#52489C;
