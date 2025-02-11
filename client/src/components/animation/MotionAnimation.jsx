@@ -69,20 +69,20 @@ export default function MotionAnimation() {
 
 function useScrollOverflowMask(scrollXProgress) {
   const maskImage = useMotionValue();
-  // `linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)`
+  `linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)`
 
   useMotionValueEvent(scrollXProgress, "change", (value) => {
     if (value === 0) {
-      animate(maskImage);
+      animate(maskImage, "linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)", { duration: 0.5 });
     } else if (value === 1) {
-      animate(maskImage);
+      animate(maskImage, "linear-gradient(90deg, #0000, #000 3%, #000 97%, #0000)", { duration: 0.5 });
     } else if (
       scrollXProgress.getPrevious() === 0 ||
       scrollXProgress.getPrevious() === 1
     ) {
       animate(
         maskImage
-        // `linear-gradient(90deg, #0000, #000 3%, #000 97%, #0000)`
+        `linear-gradient(90deg, #0000, #000 3%, #000 97%, #0000)`
       );
     }
   });
