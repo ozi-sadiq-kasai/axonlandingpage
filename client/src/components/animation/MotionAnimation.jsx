@@ -16,7 +16,7 @@ export default function MotionAnimation() {
   const { scrollXProgress } = useScroll({ container: ref });
   const maskImage = useScrollOverflowMask(scrollXProgress);
 
-  // Scroll the container automatically in a circular way
+  // Auto-scroll functionality
   useEffect(() => {
     const scrollContainer = ref.current;
     let scrollPos = 0;
@@ -50,16 +50,16 @@ export default function MotionAnimation() {
       </svg>
       <motion.ul ref={ref} style={{ maskImage }}>
         <li>
-          <img src={Computer} alt="" />
+          <img src={Computer} alt="Computer" />
         </li>
         <li>
-          <img src={Survey} alt="" />
+          <img src={Survey} alt="Survey" />
         </li>
         <li>
-          <img src={Medical} alt="" />
+          <img src={Medical} alt="Medical" />
         </li>
         <li>
-          <img src={Meetings} alt="" />
+          <img src={Meetings} alt="Meetings" />
         </li>
       </motion.ul>
       <StyleSheet />
@@ -68,21 +68,31 @@ export default function MotionAnimation() {
 }
 
 function useScrollOverflowMask(scrollXProgress) {
-  const maskImage = useMotionValue();
-  `linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)`
+  const maskImage = useMotionValue(
+    `linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)`
+  );
 
   useMotionValueEvent(scrollXProgress, "change", (value) => {
     if (value === 0) {
-      animate(maskImage, "linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)", { duration: 0.5 });
+      animate(
+        maskImage,
+        `linear-gradient(90deg, #000, #000 20%, #000 80%, #0000)`,
+        { duration: 0.5 }
+      );
     } else if (value === 1) {
-      animate(maskImage, "linear-gradient(90deg, #0000, #000 3%, #000 97%, #0000)", { duration: 0.5 });
+      animate(
+        maskImage,
+        `linear-gradient(90deg, #0000, #000 20%, #000 80%, #000)`,
+        { duration: 0.5 }
+      );
     } else if (
       scrollXProgress.getPrevious() === 0 ||
       scrollXProgress.getPrevious() === 1
     ) {
       animate(
-        maskImage
-        `linear-gradient(90deg, #0000, #000 3%, #000 97%, #0000)`
+        maskImage,
+        `linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)`,
+        { duration: 0.5 }
       );
     }
   });
@@ -97,52 +107,63 @@ function useScrollOverflowMask(scrollXProgress) {
 function StyleSheet() {
   return (
     <style>{`
-            #example {
-            border:3px solid red;
-              width: 40vw;
-            }
+      #example {
+        border: 3px solid red;
+        width: 40vw;
+        position: relative;
+      }
 
-            #example #progress circle {
-                stroke-dashoffset: 0;
-                stroke-width: 10%;
-                fill: none;
-            }
+      #example #progress {
+        position: absolute;
+        top: -65px;
+        left: -15px;
+        transform: rotate(-90deg);
+      }
 
-            #progress .indicator {
-                stroke: var(--accent);
-            }
+      #example #progress circle {
+        stroke-dashoffset: 0;
+        stroke-width: 10%;
+        fill: none;
+      }
 
-            #example ul {
-            border:1px solid orange;
-                display: flex;
-                align-items:center;
-                list-style: none;
-                overflow-x: scroll;
-                // flex: 0 0 400px;
-                margin: 0 auto;
-                gap: 20px;
-            }
-                #example img{
-                border:1px solid red;
-                height:400px;
-                widht:400px;
-                }
+      #progress .indicator {
+        stroke: var(--accent);
+      }
 
-            #example ::-webkit-scrollbar {
-                height: 5px;
-                width: 5px;
-                background: #fff3;
-                -webkit-border-radius: 1ex;
-            }
+      #example ul {
+        border: 1px solid orange;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        overflow-x: scroll;
+        margin: 0 auto;
+        gap: 20px;
+        padding: 20px 0;
+      }
 
-            #example ::-webkit-scrollbar-thumb {
-                background: var(--accent);
-                -webkit-border-radius: 1ex;
-            }
+      #example img {
+        border: 1px solid red;
+        height: 400px;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
 
-            #example ::-webkit-scrollbar-corner {
-                background: #fff3;
-            }   
+      #example ::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+        background: #fff3;
+        -webkit-border-radius: 1ex;
+      }
+
+      #example ::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        -webkit-border-radius: 1ex;
+      }
+
+      #example ::-webkit-scrollbar-corner {
+        background: #fff3;
+      }
     `}</style>
   );
 }
