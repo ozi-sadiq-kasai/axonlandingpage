@@ -24,23 +24,6 @@ const About = () => {
       <Navbar />
       <Mission />
     
-      {/* <StyledContent>
-        <h2>StreamLine Trials and Eliminate Chaos.</h2>
-        <p>
-          Axonlink removes the need for manual processes and unreliable tools
-          like spreadsheets. It also eliminates untrackable communication
-          methods, such as email. <br />
-          By centralizing workflows in one platform, it ensures better
-          organization and visibility. This approach accelerates trial
-          timelines, improves efficiency, and enhances adaptability. With
-          Axonlink, you can achieve higher-quality results while simplifying
-          your processes.
-        </p>
-        <button className='btn' onClick={handleOpenModal}>
-          Join the Waiting List
-        </button>
-      </StyledContent> */}
-    
       <Features />
      
       <Challanges />
@@ -54,7 +37,7 @@ const Wrapper = styled.section`
   height: 100vh;
   padding: 0 3rem;
    @media ${({theme}) => theme.device.max.mobile}{
-    padding: 0 0;
+    padding: 0 0.5rem;
     }
 `;
 const StyledContent = styled.section`

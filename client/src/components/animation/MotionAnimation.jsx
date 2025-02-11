@@ -24,16 +24,16 @@ export default function MotionAnimation() {
       scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
     function autoScroll() {
-      scrollPos += 1; // Adjust the increment for scroll speed
+      scrollPos += 1; 
       if (scrollPos >= scrollWidth) {
-        scrollPos = 0; // Loop back to the start
+        scrollPos = 0; 
       }
       scrollContainer.scrollLeft = scrollPos;
 
-      requestAnimationFrame(autoScroll); // Continue the loop
+      requestAnimationFrame(autoScroll); 
     }
 
-    autoScroll(); // Start the auto-scroll loop
+    autoScroll();
   }, []);
 
   return (
@@ -69,20 +69,20 @@ export default function MotionAnimation() {
 
 function useScrollOverflowMask(scrollXProgress) {
   const maskImage = useMotionValue(
-    `linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)`
+    `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`
   );
 
   useMotionValueEvent(scrollXProgress, "change", (value) => {
     if (value === 0) {
       animate(
         maskImage,
-        `linear-gradient(90deg, #000, #000 20%, #000 80%, #0000)`,
+       `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
         { duration: 0.5 }
       );
     } else if (value === 1) {
       animate(
         maskImage,
-        `linear-gradient(90deg, #0000, #000 20%, #000 80%, #000)`,
+      `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
         { duration: 0.5 }
       );
     } else if (
@@ -91,7 +91,7 @@ function useScrollOverflowMask(scrollXProgress) {
     ) {
       animate(
         maskImage,
-        `linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000)`,
+       `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
         { duration: 0.5 }
       );
     }
@@ -108,9 +108,10 @@ function StyleSheet() {
   return (
     <style>{`
       #example {
-        border: 3px solid red;
         width: 40vw;
         position: relative;
+        border:2px solid red;
+        
       }
 
       #example #progress {
@@ -131,18 +132,16 @@ function StyleSheet() {
       }
 
       #example ul {
-        border: 1px solid orange;
         display: flex;
         align-items: center;
         list-style: none;
         overflow-x: scroll;
         margin: 0 auto;
         gap: 20px;
-        padding: 20px 0;
+       padding: 20px 0;
       }
 
       #example img {
-        border: 1px solid red;
         height: 400px;
         width: 400px;
         object-fit: cover;
