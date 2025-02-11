@@ -15,45 +15,30 @@ const NavBar = () => {
   );
 };
 const Wrapper = styled.section`
-  border:1px solid red;
   display:flex;
   gap:1px;
   justify-content:space-between;
   align-items:center;
  img{
-    width:12%;
-    flex:0;
+    width:17%;
     @media ${({theme}) => theme.device.max.mobile}{
-    width:14%;
+    width:25%;
     }
  }
-
-  // .img {
-  // border:1px solid red;
-  // background-color:white;
-   
-  //   @media ${({ theme }) => theme.device.mobile} {
-  //     font-size: 1.5rem;
-  //     margin-bottom: 0;
-  //   }
-  //   @media ${({ theme }) => theme.device.tablet} {
-  //     font-size: 1.7rem;
-  //     margin-bottom: 0;
-  //   }
-  // }
 `;
 const NavLinks = styled.ul`
-border:1px solid green;
 display:flex;
-// flex:0.5;
-justify-content:space-evenly;
+flex:0.7;
+justify-content:space-around;
+ a{
+    color:var(--black);
+    font-size:1rem;
+    font-weight:400
+    }
   @media ${({theme}) => theme.device.max.mobile}{
     flex:1;
-    justify-content:space-around;
    a{
-    color:var(--black);
-    font-size:12px;
-    font-weight:400
+    font-size:11.5px;
     }
     
     }

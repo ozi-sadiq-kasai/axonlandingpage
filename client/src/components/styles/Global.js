@@ -51,7 +51,7 @@ html {
     --headingColor: var(--grey-900);
     --highlights1:#91c499;
     --highlights2:#52489C;
-    --textColor: var(--grey-50);
+    --textColor: var(--black);
     --borderRadius: 0.25rem;
     --letterSpacing: 1px;
     --transition: 0.3s ease-in all;
@@ -80,7 +80,7 @@ p {
   margin-bottom: 1rem;
   max-width: 50%;
   font-size:1.25rem;
-  /* letter-spacing:var(--letterSpacing); */
+  letter-spacing:var(--letterSpacing); 
   font-weight:100;
 }
 h1,

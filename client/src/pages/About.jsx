@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import Features from './Features';
 import Challanges from './Challanges';
+import Mission from '../components/Mission';
 import Footer from './Footer';
 import Modal from '../components/Modal';
 import { useState } from 'react';
@@ -21,7 +22,9 @@ const About = () => {
   return (
     <Wrapper>
       <Navbar />
-      <StyledContent>
+      <Mission />
+    
+      {/* <StyledContent>
         <h2>StreamLine Trials and Eliminate Chaos.</h2>
         <p>
           Axonlink removes the need for manual processes and unreliable tools
@@ -36,8 +39,10 @@ const About = () => {
         <button className='btn' onClick={handleOpenModal}>
           Join the Waiting List
         </button>
-      </StyledContent>
+      </StyledContent> */}
+    
       <Features />
+     
       <Challanges />
       <Footer />
       {showModal && <Modal onClose={handleCloseModal} />}
@@ -48,6 +53,9 @@ const About = () => {
 const Wrapper = styled.section`
   height: 100vh;
   padding: 0 3rem;
+   @media ${({theme}) => theme.device.max.mobile}{
+    padding: 0 0;
+    }
 `;
 const StyledContent = styled.section`
   background-color: var(--highlights2);
