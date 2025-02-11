@@ -47,6 +47,7 @@ const About = () => {
 
 const Wrapper = styled.section`
   height: 100vh;
+  padding: 0 3rem;
 `;
 const StyledContent = styled.section`
   background-color: var(--highlights2);
