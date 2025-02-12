@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  gap:1rem;
   @media ${({ theme }) => theme.device.max.mobile} {
     flex-direction: column;
   }
@@ -37,13 +37,24 @@ const Header = styled.div`
   p {
     max-width: 100%;
     font-weight: 200;
-    font-size:1rem
+    font-size: 1rem;
+    margin-bottom: 0;
+    @media ${({ theme }) => theme.device.max.mobile} {
+      letter-spacing: 0;
+      text-align: left;
+    }
+    @media ${({ theme }) => theme.device.tablet} {
+    
+    }
   }
   h1 {
     @media ${({ theme }) => theme.device.max.mobile} {
-      font-size:1.75rem;
-      text-align:center;
-      margin-bottom:0.7rem
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 0.7rem;
+    }
+       @media ${({ theme }) => theme.device.range.tablet} {
+        font-size: 1.6rem;
     }
   }
 `;

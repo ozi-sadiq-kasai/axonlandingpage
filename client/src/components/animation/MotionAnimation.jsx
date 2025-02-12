@@ -131,10 +131,10 @@ const StyledUl = styled(motion.ul)`
   overflow-x: scroll;
   margin: 0 auto;
   gap: 20px;
-  padding: 20px 0;
   @media ${({ theme }) => theme.device.max.mobile} {
-    padding: 10px 0;
+    gap: 7px;
   }
+
 
   &::-webkit-scrollbar {
     height: 5px;
@@ -161,5 +161,9 @@ const StyledImage = styled.img`
   @media ${({ theme }) => theme.device.max.mobile} {
     height: 200px;
     width: 200px;
+  }
+  @media ${({ theme }) => theme.device.tablet} {
+    height: 300px;
+    width: 300px;
   }
 `;
