@@ -6,6 +6,7 @@ import {
   useScroll,
 } from "framer-motion";
 import { useRef, useEffect } from "react";
+import styled from "styled-components";
 import Computer from "../../assets/computer.jpg";
 import Survey from "../../assets/survey.jpg";
 import Medical from "../../assets/medical.jpg";
@@ -16,7 +17,6 @@ export default function MotionAnimation() {
   const { scrollXProgress } = useScroll({ container: ref });
   const maskImage = useScrollOverflowMask(scrollXProgress);
 
-  // Auto-scroll functionality
   useEffect(() => {
     const scrollContainer = ref.current;
     let scrollPos = 0;
@@ -24,21 +24,20 @@ export default function MotionAnimation() {
       scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
     function autoScroll() {
-      scrollPos += 1; 
+      scrollPos += 1;
       if (scrollPos >= scrollWidth) {
-        scrollPos = 0; 
+        scrollPos = 0;
       }
       scrollContainer.scrollLeft = scrollPos;
-
-      requestAnimationFrame(autoScroll); 
+      requestAnimationFrame(autoScroll);
     }
 
     autoScroll();
   }, []);
 
   return (
-    <div id="example">
-      <svg id="progress" width="80" height="80" viewBox="0 0 100 100">
+    <StyledExample>
+      <StyledProgressSVG width="80" height="80" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
         <motion.circle
           cx="50"
@@ -47,23 +46,22 @@ export default function MotionAnimation() {
           className="indicator"
           style={{ pathLength: scrollXProgress }}
         />
-      </svg>
-      <motion.ul ref={ref} style={{ maskImage }}>
+      </StyledProgressSVG>
+      <StyledUl ref={ref} style={{ maskImage }}>
         <li>
-          <img src={Computer} alt="Computer" />
+          <StyledImage src={Computer} alt="Computer" />
         </li>
         <li>
-          <img src={Survey} alt="Survey" />
+          <StyledImage src={Survey} alt="Survey" />
         </li>
         <li>
-          <img src={Medical} alt="Medical" />
+          <StyledImage src={Medical} alt="Medical" />
         </li>
         <li>
-          <img src={Meetings} alt="Meetings" />
+          <StyledImage src={Meetings} alt="Meetings" />
         </li>
-      </motion.ul>
-      <StyleSheet />
-    </div>
+      </StyledUl>
+    </StyledExample>
   );
 }
 
@@ -76,13 +74,13 @@ function useScrollOverflowMask(scrollXProgress) {
     if (value === 0) {
       animate(
         maskImage,
-       `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
+        `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
         { duration: 0.5 }
       );
     } else if (value === 1) {
       animate(
         maskImage,
-      `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
+        `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
         { duration: 0.5 }
       );
     } else if (
@@ -91,7 +89,7 @@ function useScrollOverflowMask(scrollXProgress) {
     ) {
       animate(
         maskImage,
-       `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
+        `linear-gradient(90deg, #0000, #000 2%, #000 98%, #0000)`,
         { duration: 0.5 }
       );
     }
@@ -100,69 +98,68 @@ function useScrollOverflowMask(scrollXProgress) {
   return maskImage;
 }
 
-/**
- * ==============   Styles   ================
- */
+const StyledExample = styled.div`
+  width: 40vw;
+  position: relative;
+  @media ${({ theme }) => theme.device.max.mobile} {
+    border: none;
+    width: 80vw;
+  }
+`;
 
-function StyleSheet() {
-  return (
-    <style>{`
-      #example {
-        width: 40vw;
-        position: relative;
-        border:2px solid red;
-        
-      }
+const StyledProgressSVG = styled.svg`
+  position: absolute;
+  top: -65px;
+  left: -15px;
+  transform: rotate(-90deg);
 
-      #example #progress {
-        position: absolute;
-        top: -65px;
-        left: -15px;
-        transform: rotate(-90deg);
-      }
+  circle {
+    stroke-dashoffset: 0;
+    stroke-width: 10%;
+    fill: none;
+  }
 
-      #example #progress circle {
-        stroke-dashoffset: 0;
-        stroke-width: 10%;
-        fill: none;
-      }
+  .indicator {
+    stroke: var(--accent);
+  }
+`;
 
-      #progress .indicator {
-        stroke: var(--accent);
-      }
+const StyledUl = styled(motion.ul)`
+  display: flex;
+  align-items: center;
+  list-style: none;
+  overflow-x: scroll;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 20px 0;
+  @media ${({ theme }) => theme.device.max.mobile} {
+    padding: 10px 0;
+  }
 
-      #example ul {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        overflow-x: scroll;
-        margin: 0 auto;
-        gap: 20px;
-       padding: 20px 0;
-      }
+  &::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: #fff3;
+    -webkit-border-radius: 1ex;
+  }
 
-      #example img {
-        height: 400px;
-        width: 400px;
-        object-fit: cover;
-        border-radius: 20px;
-      }
+  &::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    -webkit-border-radius: 1ex;
+  }
 
-      #example ::-webkit-scrollbar {
-        height: 5px;
-        width: 5px;
-        background: #fff3;
-        -webkit-border-radius: 1ex;
-      }
+  &::-webkit-scrollbar-corner {
+    background: #fff3;
+  }
+`;
 
-      #example ::-webkit-scrollbar-thumb {
-        background: var(--accent);
-        -webkit-border-radius: 1ex;
-      }
-
-      #example ::-webkit-scrollbar-corner {
-        background: #fff3;
-      }
-    `}</style>
-  );
-}
+const StyledImage = styled.img`
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  @media ${({ theme }) => theme.device.max.mobile} {
+    height: 200px;
+    width: 200px;
+  }
+`;
