@@ -1,24 +1,24 @@
-import styled from 'styled-components';
-import { GrSchedules } from 'react-icons/gr';
-import { GoGear } from 'react-icons/go';
-import { RiUserCommunityLine } from 'react-icons/ri';
-import { IoAlarmOutline } from 'react-icons/io5';
-import { useEffect } from 'react';
+import styled from "styled-components";
+import { GrSchedules } from "react-icons/gr";
+import { GoGear } from "react-icons/go";
+import { RiUserCommunityLine } from "react-icons/ri";
+import { IoAlarmOutline } from "react-icons/io5";
+import { useEffect } from "react";
 
 const Challenges = () => {
   useEffect(() => {
-    const blocks = document.querySelectorAll('.animate-target');
+    const blocks = document.querySelectorAll(".animate-target");
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const direction = entry.target.getAttribute('data-direction');
-            entry.target.classList.add('animate');
+            const direction = entry.target.getAttribute("data-direction");
+            entry.target.classList.add("animate");
             entry.target.classList.add(`animate-${direction}`);
           } else {
-            const direction = entry.target.getAttribute('data-direction');
-            entry.target.classList.remove('animate');
+            const direction = entry.target.getAttribute("data-direction");
+            entry.target.classList.remove("animate");
             entry.target.classList.remove(`animate-${direction}`);
           }
         });
@@ -35,10 +35,10 @@ const Challenges = () => {
     <Wrapper>
       <h2>Challenges</h2>
       <StyledList>
-        <li className='animate-target' data-direction='left'>
+        <li className="animate-target" data-direction="left">
           <div>
             <span>
-              <GoGear size={'24px'} color={'#91C499'} />
+              <GoGear size={"24px"} color={"#91C499"} />
             </span>
             <h3>Inefficient Process</h3>
           </div>
@@ -47,11 +47,11 @@ const Challenges = () => {
             spreadsheets that lack automation and reliability.
           </p>
         </li>
-        <li className='animate-target' data-direction='right'>
+        <li className="animate-target" data-direction="right">
           <div>
             <span>
-              <RiUserCommunityLine size={'24px'} color={'#91C499'} />
-            </span>{' '}
+              <RiUserCommunityLine size={"24px"} color={"#91C499"} />
+            </span>{" "}
             <h3>Communication Gaps</h3>
           </div>
           <p>
@@ -60,10 +60,10 @@ const Challenges = () => {
             interactions.
           </p>
         </li>
-        <li className='animate-target' data-direction='left'>
+        <li className="animate-target" data-direction="left">
           <div>
             <span>
-              <GrSchedules size={'24px'} color={'#91C499'} />
+              <GrSchedules size={"24px"} color={"#91C499"} />
             </span>
             <h3>Scheduling Challenges</h3>
           </div>
@@ -72,10 +72,10 @@ const Challenges = () => {
             adapting visit schedules to participants&apos; needs.
           </p>
         </li>
-        <li className='animate-target' data-direction='right'>
+        <li className="animate-target" data-direction="right">
           <div>
             <span>
-              <IoAlarmOutline size={'24px'} color={'#91C499'} />
+              <IoAlarmOutline size={"24px"} color={"#91C499"} />
             </span>
             <h3>Participant Engagement</h3>
           </div>
@@ -91,28 +91,34 @@ const Challenges = () => {
 };
 
 const Wrapper = styled.section`
-  background-color: var(--grey-50);
-  padding-bottom: 2.5rem;
+  background-color: white;
+  border: 1px solid red;
+  padding: 1.2rem 0;
   h2 {
+    font-size: 2rem;
     color: var(--grey-700);
     text-align: center;
     font-weight: 600;
+    margin-bottom: 0.3rem;
   }
 `;
 
 const StyledList = styled.ul`
+  border: 1px solid red;
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 4rem;
-  row-gap: 2rem;
+  column-gap: 3rem;
+  row-gap: 1rem;
   justify-content: center;
   div {
+    border: 1px solid red;
     display: flex;
     align-items: center;
     gap: 1rem;
     h3 {
+      font-size: 1rem;
       margin: 0;
     }
   }
@@ -123,12 +129,15 @@ const StyledList = styled.ul`
     opacity: 0;
     transition: all 0.7s ease-in-out;
     color: var(--grey-500);
-    padding: 0.8rem 1rem;
+    padding: 0.4rem;
     box-shadow: var(--shadow-2);
     overflow: hidden;
     p {
-      max-width: 70%;
-      margin: 0 auto;
+      max-width: 100%;
+      // margin: 0 auto;
+      border: 1px solid red;
+      font-size: 14px;
+      margin-bottom: 0;
     }
   }
   li.animate {
