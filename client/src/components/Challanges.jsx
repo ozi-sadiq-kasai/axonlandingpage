@@ -135,9 +135,11 @@ const StyledList = styled.ul`
     p {
       max-width: 100%;
       // margin: 0 auto;
+      letter-spacing:0;
       border: 1px solid red;
       font-size: 14px;
       margin-bottom: 0;
+      color
     }
   }
   li.animate {

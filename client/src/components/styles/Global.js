@@ -81,7 +81,7 @@ p {
   max-width: 50%;
   font-size:1.25rem;
   letter-spacing:var(--letterSpacing); 
-  font-weight:100;
+  font-weight:300;
 }
 h1,
 h2,
