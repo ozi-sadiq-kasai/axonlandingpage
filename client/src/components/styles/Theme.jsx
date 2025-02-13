@@ -33,6 +33,7 @@ const theme = {
         small: `(min-width: ${size.xsm}) and (max-width: ${parseInt(size.tablet) - 1}px)`, // 425px - 767px
         tablet: `(min-width: ${size.tablet}) and (max-width: ${parseInt(size.laptop) - 1}px)`, // 768px - 1023px
         laptop: `(min-width: ${size.laptop}) and (max-width: ${parseInt(size.desktop) - 1}px)`, // 1024px - 1439px  
+        desktop: `(min-width: ${size.desktop})`, // 1024px 
     }
   },
 };
