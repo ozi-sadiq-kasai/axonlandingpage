@@ -38,7 +38,7 @@ const Challenges = () => {
         <li className="animate-target" data-direction="left">
           <div>
             <span>
-              <GoGear size={"24px"} color={"#91C499"} />
+              <GoGear size={"22px"} color={"#91C499"} />
             </span>
             <h3>Inefficient Process</h3>
           </div>
@@ -50,7 +50,7 @@ const Challenges = () => {
         <li className="animate-target" data-direction="right">
           <div>
             <span>
-              <RiUserCommunityLine size={"24px"} color={"#91C499"} />
+              <RiUserCommunityLine size={"22px"} color={"#91C499"} />
             </span>{" "}
             <h3>Communication Gaps</h3>
           </div>
@@ -63,7 +63,7 @@ const Challenges = () => {
         <li className="animate-target" data-direction="left">
           <div>
             <span>
-              <GrSchedules size={"24px"} color={"#91C499"} />
+              <GrSchedules size={"22px"} color={"#91C499"} />
             </span>
             <h3>Scheduling Challenges</h3>
           </div>
@@ -75,7 +75,7 @@ const Challenges = () => {
         <li className="animate-target" data-direction="right">
           <div>
             <span>
-              <IoAlarmOutline size={"24px"} color={"#91C499"} />
+              <IoAlarmOutline size={"22px"} color={"#91C499"} />
             </span>
             <h3>Participant Engagement</h3>
           </div>
@@ -92,7 +92,6 @@ const Challenges = () => {
 
 const Wrapper = styled.section`
   background-color: white;
-  border: 1px solid red;
   padding: 1.2rem 0;
   h2 {
     font-size: 2rem;
@@ -104,7 +103,6 @@ const Wrapper = styled.section`
 `;
 
 const StyledList = styled.ul`
-  border: 1px solid red;
   margin: 0 auto;
   width: 100%;
   display: grid;
@@ -113,12 +111,11 @@ const StyledList = styled.ul`
   row-gap: 1rem;
   justify-content: center;
   div {
-    border: 1px solid red;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.7rem;
     h3 {
-      font-size: 1rem;
+      font-size: 0.75rem;
       margin: 0;
     }
   }
@@ -129,17 +126,15 @@ const StyledList = styled.ul`
     opacity: 0;
     transition: all 0.7s ease-in-out;
     color: var(--grey-500);
-    padding: 0.4rem;
     box-shadow: var(--shadow-2);
     overflow: hidden;
     p {
       max-width: 100%;
-      // margin: 0 auto;
       letter-spacing:0;
-      border: 1px solid red;
-      font-size: 14px;
+      font-size: 12.3px;
+      color:black;
       margin-bottom: 0;
-      color
+      text-align:left;
     }
   }
   li.animate {
