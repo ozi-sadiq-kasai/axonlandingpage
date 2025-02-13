@@ -68,8 +68,9 @@ const Button = styled.button`
      box-shadow: var(--shadow-1);
      color:#52489C;
   }
-   @media ${({ theme }) => theme.device.max.mobile} {
-       left:120px;
+   
+   @media ${({ theme }) => theme.device.range.small} {
+       left:25%;
        bottom:-15px;
        padding:0.4rem 1rem;
     }
