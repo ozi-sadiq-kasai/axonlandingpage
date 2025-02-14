@@ -1,11 +1,11 @@
 import Navbar from '../components/Navbar';
 import styled from 'styled-components';
-import Features from './Features';
 import Challanges from '../components/Challanges';
 import Mission from '../components/Mission';
 import Footer from './Footer';
 import Modal from '../components/Modal';
 import { useState } from 'react';
+import Join from '../components/Join';
 
 const About = () => {
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +24,7 @@ const About = () => {
       <Navbar />
       <Mission />
     
-      <Features />
+      <Join />
      
       <Challanges />
       <Footer />

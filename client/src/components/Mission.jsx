@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap:1rem;
+  gap: 1rem;
   @media ${({ theme }) => theme.device.max.mobile} {
     flex-direction: column;
   }
@@ -43,7 +43,6 @@ const Header = styled.div`
       letter-spacing: 0;
       text-align: left;
     }
-    
   }
   h1 {
     @media ${({ theme }) => theme.device.max.mobile} {
@@ -51,8 +50,8 @@ const Header = styled.div`
       text-align: center;
       margin-bottom: 0.7rem;
     }
-       @media ${({ theme }) => theme.device.range.tablet} {
-        font-size: 1.6rem;
+    @media ${({ theme }) => theme.device.range.tablet} {
+      font-size: 1.6rem;
     }
   }
 `;

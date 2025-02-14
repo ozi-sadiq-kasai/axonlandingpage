@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Features = () => {
+const Join = () => {
   return (
     <Wrapper>
       <h2>The Future of Clinical Trials is Here. Join the Movement. </h2>
@@ -88,4 +88,4 @@ const Button = styled.button`
        bottom:-15px;
     }
 `;
-export default Features;
+export default Join;
