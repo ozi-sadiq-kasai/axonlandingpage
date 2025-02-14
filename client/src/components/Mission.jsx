@@ -43,9 +43,7 @@ const Header = styled.div`
       letter-spacing: 0;
       text-align: left;
     }
-    @media ${({ theme }) => theme.device.tablet} {
     
-    }
   }
   h1 {
     @media ${({ theme }) => theme.device.max.mobile} {

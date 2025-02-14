@@ -99,6 +99,9 @@ const Wrapper = styled.section`
     text-align: center;
     font-weight: 600;
     margin-bottom: 0.3rem;
+    @media ${({ theme }) => theme.device.min.tablet} {
+      font-size: 3rem;
+    }
   }
 `;
 
@@ -117,6 +120,9 @@ const StyledList = styled.ul`
     h3 {
       font-size: 0.75rem;
       margin: 0;
+      @media ${({ theme }) => theme.device.min.tablet} {
+        font-size: 1.9rem;
+      }
     }
   }
   li {
@@ -130,12 +136,21 @@ const StyledList = styled.ul`
     overflow: hidden;
     p {
       max-width: 100%;
-      letter-spacing:0;
+      letter-spacing: 0;
       font-size: 12.3px;
-      color:black;
+      color: black;
       margin-bottom: 0;
-      text-align:left;
+      text-align: left;
+      @media ${({ theme }) => theme.device.min.tablet} {
+        font-size: 1.2rem;
+      }
     }
+    @media ${({ theme }) => theme.device.min.tablet} {
+      padding: 0.8rem;
+    }
+        @media ${({ theme }) => theme.device.range.laptop} {
+        height:200px;
+      }
   }
   li.animate {
     opacity: 1;
