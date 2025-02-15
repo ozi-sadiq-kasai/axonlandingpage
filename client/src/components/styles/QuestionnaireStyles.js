@@ -32,7 +32,7 @@ export const FormHeader = styled.h2`
   //border: 3px solid blue;
   font-size: 1.5rem;
   text-align: center;
- 
+  margin-bottom: 0;
 `;
 
 export const FormSection = styled.h3`
@@ -40,6 +40,7 @@ export const FormSection = styled.h3`
   font-size: 1rem;
   color: var(--grey-500);
   margin-bottom: 0;
+  margin-top:1rem;
 `;
 
 export const Label = styled.label`
@@ -63,4 +64,22 @@ export const FormInput = styled.input`
 padding:5px 20px;
 border:1px solid var(--grey-200);
 outline:none;
+`
+export const TextArea = styled.textarea`
+//background-color:red;
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  border:1px solid var(--grey-200);
+`
+export const Button = styled.button`
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+border:none;
+background-color:white;
+button{
+cursor:pointer;
+}
 `
