@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import { useState } from "react";
 import axios from "axios";
+import { Wrapper,ContentHeader,FormHeader,FormSection } from "./styles/QuestionnaireStyles.js";
 
 const Questionnaire = () => {
   const [formData,setFormData] = useState({
@@ -53,25 +53,25 @@ const Questionnaire = () => {
 
 
   return (
-    <>
-      <div>
-        <h2>Join the Waitlist: Be Part of the Future of Clinical Trials</h2>
+    <Wrapper>
+      <ContentHeader>
+        <h2>Join the Waitlist</h2><span>Be Part of the Future of Clinical Trials</span>
         
         <p>
           Thank you for your interest in our platform, connecting individuals
           with groundbreaking clinical trials and empowering researchers to
-          accelerate discovery. By joining our waitlist, you'll be among the
+          accelerate discovery.<br/> By joining our waitlist, you'll be among the
           first to know when our platform launches and gain access to exclusive
-          updates and opportunities. Please take a few moments to answer the
+          updates and opportunities. <br/> Please take a few moments to answer the
           following questions so we can better understand your needs.
         </p>
-      </div>
+      </ContentHeader>
 
-      <h3>Clinical Trial Form</h3>
+      <FormHeader>Clinical Trial Form</FormHeader>
       <form onSubmit={handleSubmit}>
       {/* Section 1: About You */}
       <div >
-        <h2>Section 1: About You</h2>
+        <FormSection>Section 1: About You</FormSection>
         
         <div>
           <label>Are you interested in participating in clinical trials?</label>
@@ -304,7 +304,7 @@ const Questionnaire = () => {
 
       <button type="submit">Submit Form</button>
     </form>
-    </>
+    </Wrapper>
   );
 };
 
