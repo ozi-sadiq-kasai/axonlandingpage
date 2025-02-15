@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Wrapper,ContentHeader,FormHeader,FormSection } from "./styles/QuestionnaireStyles.js";
+import { Wrapper,ContentHeader,FormHeader,FormSection,Label,Options,HealthOptions,FormInput } from "./styles/QuestionnaireStyles.js";
 
 const Questionnaire = () => {
   const [formData,setFormData] = useState({
@@ -73,9 +73,9 @@ const Questionnaire = () => {
       <div >
         <FormSection>Section 1: About You</FormSection>
         
-        <div>
-          <label>Are you interested in participating in clinical trials?</label>
-          <div >
+        <>
+          <Label>Are you interested in participating in clinical trials?</Label>
+          <Options>
             {['Yes', 'No', 'Maybe'].map(option => (
               <label key={option}>
                 <input
@@ -88,13 +88,13 @@ const Questionnaire = () => {
                 {option}
               </label>
             ))}
-          </div>
-        </div>
+          </Options>
+        </>
 
         {formData.interest === 'Yes' && (
-          <div >
-            <label>What areas of health or research are you most interested in?</label>
-            <div >
+          <>
+            <Label>What areas of health or research are you most interested in?</Label>
+            <HealthOptions >
               {healthOptions.map(option => (
                 <label key={option} >
                   <input
@@ -114,13 +114,13 @@ const Questionnaire = () => {
                   )}
                 </label>
               ))}
-            </div>
-          </div>
+            </HealthOptions>
+          </>
         )}
 
-        <div >
-          <label>Are you a healthcare professional, researcher or member of a clinical research organization?</label>
-          <div>
+        <>
+          <Label>Are you a healthcare professional, researcher or member of a clinical research organization?</Label>
+          <Options>
             <label>
               <input
                 type="radio"
@@ -139,9 +139,9 @@ const Questionnaire = () => {
               />
               No
             </label>
-          </div>
+          </Options>
           {formData.isProfessional && (
-            <input
+            <FormInput
               type="text"
               name="professionalRole"
               value={formData.professionalRole}
@@ -149,11 +149,11 @@ const Questionnaire = () => {
               placeholder="Please specify your role"
             />
           )}
-        </div>
+        </>
 
         <div >
-          <label>Your Location (City, County, Country):</label>
-          <input
+          <Label>Your Location (City, County, Country):</Label>
+          <FormInput
             type="text"
             name="location"
             value={formData.location}
