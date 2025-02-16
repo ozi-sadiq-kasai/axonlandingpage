@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import Challanges from '../components/Challanges';
 import Mission from '../components/Mission';
@@ -21,7 +21,7 @@ const About = () => {
 
   return (
     <Wrapper>
-      <Navbar />
+      {/* <Navbar /> */}
       <Mission />
     
       <Join />
