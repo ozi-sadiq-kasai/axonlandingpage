@@ -8,13 +8,13 @@ const NavBar = () => {
       <img src={Logo} alt="logo" className="img" />
       <NavLinks>
         <li>
-          <Link href="#">Home</Link>
+        <Link to="/about">About</Link>
         </li>
         <li>
-          <Link href="#">Join</Link>
+          <Link to="/questionnaire">Questionnaire</Link>
         </li>
         <li>
-          <Link href="#">Privacy Policy</Link>
+          <Link to="/privacypolicy">Privacy Policy</Link>
         </li>
       </NavLinks>
     </Wrapper>

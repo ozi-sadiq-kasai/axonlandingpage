@@ -14,8 +14,8 @@ const App = () => {
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path="/" element={<Layout />}>
-            <Route path="/about" element={<About />} />
-            <Route path="/questionnaire" element={<Questionnaire />} />
+            <Route path="about" element={<About />} />
+            <Route path="questionnaire" element={<Questionnaire />} />
           </Route>
         </Routes>
       </BrowserRouter>
