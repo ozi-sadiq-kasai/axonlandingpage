@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+// Your API base URL from the environment variable
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 import {
   Wrapper,
   ContentHeader,
@@ -59,11 +61,9 @@ const Questionnaire = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/research",
-        formData,
-        { headers: { "Content-Type": "application/json" } }
-      );
+      const response = await axios.post(`${API_BASE_URL}/research`, formData, {
+        headers: { "Content-Type": "application/json" },
+      });
       console.log("Form submitted successfully:", response.data);
     } catch (error) {
       console.error("There was an error submitting the form:", error);

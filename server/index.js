@@ -4,15 +4,15 @@ import express from "express";
 import mongoose from "mongoose";
 import router from "./Routes/ResearchRoute.js";
 import cors from "cors";
-// import path from "path";
-// import { fileURLToPath } from "url";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const port = 4000;
 
 // Middleware
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_URL,credentials: true }));
 
 // Ensure MONGO_URI is defined
 const mongoURI = process.env.MONGO_URI;
@@ -33,7 +33,14 @@ mongoose
     process.exit(1); // Exit process if DB connection fails
   });
 
+// Serve frontend (client/dist) in production
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
 
 // Routes
 app.use('/api', router);
