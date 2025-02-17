@@ -56,10 +56,19 @@ const Questionnaire = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your submission logic here
-    console.log("Form Data:", formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/api/research",
+        formData,
+        { headers: { "Content-Type": "application/json" } }
+      );
+      console.log("Form submitted successfully:", response.data);
+    } catch (error) {
+      console.error("There was an error submitting the form:", error);
+    }
+    console.log("Form Data console:", formData);
   };
 
   return (
@@ -144,7 +153,8 @@ const Questionnaire = () => {
                 <input
                   type="radio"
                   name="isProfessional"
-                  checked={formData.isProfessional}
+                  value="true"
+                  checked={formData.isProfessional === true}
                   onChange={() =>
                     setFormData({ ...formData, isProfessional: true })
                   }
@@ -155,9 +165,14 @@ const Questionnaire = () => {
                 <input
                   type="radio"
                   name="isProfessional"
-                  checked={!formData.isProfessional}
+                  value="false"
+                  checked={formData.isProfessional === false}
                   onChange={() =>
-                    setFormData({ ...formData, isProfessional: false })
+                    setFormData({
+                      ...formData,
+                      isProfessional: false,
+                      professionalRole: "",
+                    })
                   }
                 />
                 No
@@ -342,7 +357,7 @@ const Questionnaire = () => {
             )}
           </>
         </>
-        <Button >
+        <Button>
           <button type="submit" className="btn">
             Submit Form
           </button>

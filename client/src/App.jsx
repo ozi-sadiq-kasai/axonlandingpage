@@ -5,6 +5,7 @@ import GlobalStyles from "./components/styles/Global";
 import About from "./pages/About";
 import Questionnaire from "./components/Questionnaire";
 import LandingPage from "./pages/LandingPage";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route path="about" element={<About />} />
             <Route path="questionnaire" element={<Questionnaire />} />
+            <Route path="privacypolicy" element={<PrivacyPolicy />} />
           </Route>
         </Routes>
       </BrowserRouter>

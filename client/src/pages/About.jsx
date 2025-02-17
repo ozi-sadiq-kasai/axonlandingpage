@@ -4,8 +4,8 @@ import Challanges from '../components/Challanges';
 import Mission from '../components/Mission';
 import Footer from './Footer';
 import Modal from '../components/Modal';
-import { useState } from 'react';
 import Join from '../components/Join';
+import { useState } from 'react';
 
 const About = () => {
   const [showModal, setShowModal] = useState(false);
