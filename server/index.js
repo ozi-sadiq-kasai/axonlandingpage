@@ -12,14 +12,13 @@ const port = 4000;
 
 // Middleware
 app.use(express.json());
- app.use(cors({ origin: process.env.CLIENT_URL,credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 // app.use(
 //   cors({
 //     origin: '*', // frontend URL
 //     credentials: true, // if you're using cookies/sessions
 //   })
 // );
-
 
 // Ensure MONGO_URI is defined
 const mongoURI = process.env.MONGO_URI;
@@ -40,6 +39,9 @@ mongoose
     process.exit(1); // Exit process if DB connection fails
   });
 
+// Routes
+app.use("/api", router);
+
 //Serve frontend (client/dist) in production
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,9 +50,6 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
-
-// Routes
-app.use('/api', router);
 
 // Start the server
 app.listen(port, () => {
