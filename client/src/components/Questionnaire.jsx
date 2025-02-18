@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Modal from "./Modal.jsx";
 // Your API base URL from the environment variable
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 import {
@@ -16,6 +17,7 @@ import {
 } from "./styles/QuestionnaireStyles.js";
 
 const Questionnaire = () => {
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     interest: "",
     healthAreas: [],
@@ -33,6 +35,7 @@ const Questionnaire = () => {
     otherHealthArea: "",
     privacyConsent: false,
   });
+ 
   const healthOptions = [
     "Oncology (Cancer)",
     "Cardiology (Heart Health)",
@@ -65,11 +68,34 @@ const Questionnaire = () => {
         headers: { "Content-Type": "application/json" },
       });
       console.log("Form submitted successfully:", response.data);
+      
+      // Show modal after successful submission
+      setShowModal(true);
+      
+      // Optionally, reset the form after submission
+      setFormData({
+        interest: "",
+        healthAreas: [],
+        isProfessional: false,
+        professionalRole: "",
+        location: "",
+        previousExperience: false,
+        experienceDetails: "",
+        challenges: "",
+        email: "",
+        name: "",
+        referralSource: "",
+        receiveUpdates: false,
+        updateAreas: [],
+        otherHealthArea: "",
+        privacyConsent: false,
+      });
+  
     } catch (error) {
       console.error("There was an error submitting the form:", error);
     }
-    console.log("Form Data console:", formData);
   };
+  
 
   return (
     <Wrapper>
@@ -363,6 +389,8 @@ const Questionnaire = () => {
           </button>
         </Button>
       </form>
+      {/* <Modal /> */}
+      {showModal && <Modal onClose={() => setShowModal(false)} />}
     </Wrapper>
   );
 };

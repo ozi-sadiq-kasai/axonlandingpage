@@ -1,106 +1,24 @@
-/* eslint-disable react/prop-types */
-import styled from 'styled-components';
-import { useState } from 'react';
-import axios from 'axios';
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({ onClose }) => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    ResearchType: '', 
-  });
+const navigate = useNavigate()
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+const handleClose = () =>{
+  if (onClose) {
+    onClose();
+  }
+  navigate("/about");
+}
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(true);
-    setError('');
-    try {
-      // Use formData directly, as keys now match backend expectations
-      const response = await axios.post(
-        'http://localhost:4000/createResearch',
-        formData
-      );
-      console.log('Response', response.data);
-      alert('Research Created Successfully');
-    } catch (err) {
-      console.error('Error submitting research:', err);
-      setError('Failed to submit research. Please try again.');
-    } finally {
-      setLoading(false);
-      if (!error) onClose()
-    }
-  };
 
   return (
     <Wrapper>
-      <form onSubmit={handleSubmit} className='form' >
-        <div>
-          <label htmlFor="fname">FirstName:</label>
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="lname">LastName:</label>
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="phone">Phone:</label>
-          <input
-            type="tel"
-            name="phone"
-            placeholder='080000000000'
-            value={formData.phone}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="researches">Research Areas of Interest:</label>
-          <select
-            id="dropdown"
-            name="ResearchType"
-            value={formData.ResearchType}
-            onChange={handleChange}
-          >
-            <option value="" disabled> -- Select an option -- </option>
-            <option value="Covid">Covid</option>
-            <option value="Typhoid">Typhoid</option>
-            <option value="Kidney">Kidney</option>
-            <option value="Malaria">Malaria</option>
-          </select>
-        </div>
-        <button type="submit" className='btn' disabled={loading}>
-          {loading ? 'Loading...' : 'Submit'}
-        </button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </form>
+      <Content>
+        <h2>Thank You!</h2>
+        <p>Thank you for taking part in the survey.</p>
+        <button onClick={handleClose}>Close</button>
+      </Content>
     </Wrapper>
   );
 };
@@ -116,12 +34,22 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+`;
+const Content = styled.div`
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-  form{
-    background-color:var(--grey-50);
-    color:var(--highlights1);
-    width:45vw;
+  button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
   }
 `;
-
 export default Modal;
