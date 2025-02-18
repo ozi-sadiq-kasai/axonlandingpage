@@ -4,11 +4,12 @@ import styled from "styled-components";
 
 const AdminPage = () => {
   const [data, setData] = useState([]);
+    // Use VITE_API_URL if available, or fall back to localhost (useful if VITE_API_URL isn't set)
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
 
   useEffect(() => {
     axios
-     .get(import.meta.env.VITE_API_URL + "/admin")
-    //.get("http://localhost:4000/api/admin")
+    .get(`${apiUrl}/admin`)
       .then((response) => {
         setData(response.data);
         console.log(data)
