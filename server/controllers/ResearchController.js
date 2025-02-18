@@ -53,9 +53,12 @@ const createResearch = async (req, res) => {
 
 const getResearch = async (req, res) =>{
   try {
+    console.log("Fetching research data...");
     const researchData = await Research.find();
+    console.log("Fetched Data:", researchData);
     res.status(200).json(researchData);
   } catch (error) {
+    console.error("Error fetching research data:", error);
     res.status(500).json({ error: "Failed to fetch research data" });
   }
 }
