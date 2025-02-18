@@ -60,4 +60,4 @@ const getResearch = async (req, res) =>{
   }
 }
 
-export { createResearch,getResearch };
+export { createResearch, getResearch };

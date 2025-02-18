@@ -7,7 +7,7 @@ const AdminPage = () => {
 
   useEffect(() => {
     axios
-      .get(import.meta.env.VITE_API_URL + "/api/research")
+      .get(import.meta.env.VITE_API_URL + "/admin/research")
       .then((response) => {
         console.log("📌 API Response:", response.data);
         setData(response.data);
