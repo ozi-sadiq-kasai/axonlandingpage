@@ -7,10 +7,11 @@ const AdminPage = () => {
 
   useEffect(() => {
     axios
-      .get(import.meta.env.VITE_API_URL + "/admin/research")
+     .get(import.meta.env.VITE_API_URL + "/admin")
+    //.get("http://localhost:4000/api/admin")
       .then((response) => {
-        console.log("📌 API Response:", response.data);
         setData(response.data);
+        console.log(data)
       })
       .catch((error) => console.error("Error fetching research data:", error));
   }, []);
