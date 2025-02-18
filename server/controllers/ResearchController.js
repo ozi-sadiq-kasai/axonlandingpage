@@ -51,4 +51,13 @@ const createResearch = async (req, res) => {
   }
 };
 
-export { createResearch };
+const getResearch = async (req, res) =>{
+  try {
+    const researchData = await Research.find();
+    res.status(200).json(researchData);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch research data" });
+  }
+}
+
+export { createResearch,getResearch };

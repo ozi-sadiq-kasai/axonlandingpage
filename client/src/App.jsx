@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Questionnaire from "./components/Questionnaire";
 import LandingPage from "./pages/LandingPage";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import Admin from "./pages/Admin";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="about" element={<About />} />
             <Route path="questionnaire" element={<Questionnaire />} />
             <Route path="privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="admin" element={<Admin />} />
           </Route>
         </Routes>
       </BrowserRouter>

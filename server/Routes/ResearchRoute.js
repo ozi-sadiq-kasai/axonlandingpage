@@ -1,8 +1,9 @@
 import express from 'express';
-import { createResearch } from '../controllers/ResearchController.js';
+import { createResearch,getResearch } from '../controllers/ResearchController.js';
 
 const router = express.Router();
 
 router.post('/research', createResearch);
+router.get('/admin/research',getResearch)
 
 export default router;
