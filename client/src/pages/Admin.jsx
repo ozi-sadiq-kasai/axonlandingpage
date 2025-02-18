@@ -7,8 +7,11 @@ const AdminPage = () => {
 
   useEffect(() => {
     axios
-      .get(import.meta.env.VITE_API_URL + "/api/admin/research")
-      .then((response) => setData(response.data))
+      .get(import.meta.env.VITE_API_URL + "/api/research")
+      .then((response) => {
+        console.log("📌 API Response:", response.data);
+        setData(response.data);
+      })
       .catch((error) => console.error("Error fetching research data:", error));
   }, []);
 
@@ -27,16 +30,22 @@ const AdminPage = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
-            <tr key={item._id}>
-              <td>{item.name || "N/A"}</td>
-              <td>{item.email}</td>
-              <td>{item.interest || "N/A"}</td>
-              <td>{item.healthAreas?.join(", ") || "N/A"}</td>
-              <td>{item.location || "N/A"}</td>
-              <td>{item.challenges || "N/A"}</td>
+          {Array.isArray(data) ? (
+            data.map((item) => (
+              <tr key={item._id}>
+                <td>{item.name || "N/A"}</td>
+                <td>{item.email}</td>
+                <td>{item.interest || "N/A"}</td>
+                <td>{item.healthAreas?.join(", ") || "N/A"}</td>
+                <td>{item.location || "N/A"}</td>
+                <td>{item.challenges || "N/A"}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="6">No data available</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </Table>
     </Container>
@@ -54,7 +63,8 @@ const Table = styled.table`
   border-collapse: collapse;
   margin-top: 20px;
 
-  th, td {
+  th,
+  td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
