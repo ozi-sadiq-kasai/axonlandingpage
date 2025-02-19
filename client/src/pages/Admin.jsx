@@ -55,9 +55,10 @@ const AdminPage = () => {
 };
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 8rem  3rem 0 3rem;
   max-width: 1000px;
   margin: auto;
+  height:100vh;
 `;
 
 const Table = styled.table`
