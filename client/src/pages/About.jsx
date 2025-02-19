@@ -1,30 +1,30 @@
 // import Navbar from '../components/Navbar';
-import styled from 'styled-components';
-import Challanges from '../components/Challanges';
-import Mission from '../components/Mission';
-import Footer from './Footer';
-import Modal from '../components/Modal';
-import Join from '../components/Join';
-import { useState } from 'react';
+import styled from "styled-components";
+import Challanges from "../components/Challanges";
+import Mission from "../components/Mission";
+import Footer from "./Footer";
+import Modal from "../components/Modal";
+import Join from "../components/Join";
+import { useState } from "react";
 
 const About = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => {
     setShowModal(true);
-    console.log('modalOpen', showModal);
+    console.log("modalOpen", showModal);
   };
   const handleCloseModal = () => {
     setShowModal(false);
-    console.log('modalclosed', showModal);
+    console.log("modalclosed", showModal);
   };
 
   return (
     <Wrapper>
       <Mission />
-    
+
       <Join />
-     
+
       <Challanges />
       <Footer />
       {showModal && <Modal onClose={handleCloseModal} />}
@@ -35,9 +35,9 @@ const About = () => {
 const Wrapper = styled.section`
   height: 100vh;
   padding: 0 3rem;
-   @media ${({theme}) => theme.device.max.mobile}{
+  @media ${({ theme }) => theme.device.max.mobile} {
     padding: 0 0.5rem;
-    }
+  }
 `;
 const StyledContent = styled.section`
   background-color: var(--highlights2);
@@ -111,9 +111,9 @@ const StyledContent = styled.section`
       left: 35%;
     }
   }
-  button:hover{
-    background-color:var(--highlights2);
-    color:var(--highlights1)
+  button:hover {
+    background-color: var(--highlights2);
+    color: var(--highlights1);
   }
 `;
 export default About;

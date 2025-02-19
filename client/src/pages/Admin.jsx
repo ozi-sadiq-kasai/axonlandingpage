@@ -5,8 +5,7 @@ import styled from "styled-components";
 const AdminPage = () => {
   const [data, setData] = useState([]);
     // Use VITE_API_URL if available, or fall back to localhost (useful if VITE_API_URL isn't set)
-    // const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
-    const apiUrl = "http://localhost:4000/api";
+    const apiUrl = import.meta.env.VITE_API_URL 
 
   useEffect(() => {
     axios
