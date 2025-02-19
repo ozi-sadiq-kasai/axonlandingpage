@@ -16,7 +16,7 @@ const Modal = ({ onClose }) => {
       <Content>
         <div>
           <h2>Thank You!</h2>
-          <p>Thank you for taking part in the survey.</p>
+          <p>Thank you for joining our waitlist! We're excited to have you on board. We'll keep you updated on our progress and notify you as soon as our platform launches. In the meantime, feel free to visit our website [link to your website] to learn more about our mission.</p>
         </div>
         <button onClick={handleClose} className="btn">
           Close
