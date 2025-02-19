@@ -1,6 +1,12 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Join = () => {
+  const navigate = useNavigate();
+  const handleNavigation = () => {
+    navigate("/questionnaire");
+  };
+
   return (
     <Wrapper>
       <h2>The Future of Clinical Trials is Here. Join the Movement. </h2>
@@ -9,7 +15,9 @@ const Join = () => {
         platform that connects patients and researchers directly, fostering
         faster breakthroughs and healthier futures.
       </p>
-      <Button type="submit">Join the Waiting List</Button>
+      <Button type="submit" onClick={handleNavigation}>
+        Join the Waiting List
+      </Button>
     </Wrapper>
   );
 };
@@ -52,40 +60,40 @@ const Wrapper = styled.section`
   }
 `;
 const Button = styled.button`
-  background-color: #52489C;
-  position:absolute;
-  bottom:-20px;
-  left:390px;
-  color:white;
-  border:none;
-  padding:0.9rem 1rem;
-  cursor:pointer;
-   font-weight: 300;
-   font-size:1rem;
-  border-radius:5px;
-  &:hover{
-     background-color: #91c499;
-     box-shadow: var(--shadow-1);
-     color:#52489C;
+  background-color: #52489c;
+  position: absolute;
+  bottom: -20px;
+  left: 390px;
+  color: white;
+  border: none;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 1rem;
+  border-radius: 5px;
+  &:hover {
+    background-color: #91c499;
+    box-shadow: var(--shadow-1);
+    color: #52489c;
   }
-   
-   @media ${({ theme }) => theme.device.range.small} {
-       left:25%;
-       bottom:-15px;
-       padding:0.4rem 1rem;
-    }
-   @media ${({ theme }) => theme.device.range.tablet} {
-       left:250px;
-       bottom:-15px;
-       padding:0.7rem 1rem;
-    }
-   @media ${({ theme }) => theme.device.range.laptop} {
-       left:43%;
-       bottom:-20px;
-    }
-   @media ${({ theme }) => theme.device.range.desktop} {
-       left:45%;
-       bottom:-15px;
-    }
+
+  @media ${({ theme }) => theme.device.range.small} {
+    left: 25%;
+    bottom: -15px;
+    padding: 0.4rem 1rem;
+  }
+  @media ${({ theme }) => theme.device.range.tablet} {
+    left: 250px;
+    bottom: -15px;
+    padding: 0.7rem 1rem;
+  }
+  @media ${({ theme }) => theme.device.range.laptop} {
+    left: 43%;
+    bottom: -20px;
+  }
+  @media ${({ theme }) => theme.device.range.desktop} {
+    left: 45%;
+    bottom: -15px;
+  }
 `;
 export default Join;
