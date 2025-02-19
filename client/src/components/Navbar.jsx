@@ -21,7 +21,10 @@ const NavBar = () => {
   );
 };
 const Wrapper = styled.section`
-  padding: 1rem 0;
+position:fixed;
+background-color:white;
+width:100%;
+z-index:1000;
   display: flex;
   gap: 1px;
   justify-content: space-between;

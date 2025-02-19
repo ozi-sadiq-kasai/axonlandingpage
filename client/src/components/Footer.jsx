@@ -8,15 +8,14 @@ const Footer = () => {
   )
 }
 
-const Wrapper = styled.section`
-background-color:var(--highlights2);
-display:flex;
-justify-content: center;
-align-items:center;
-h5{
-  width:50%;
-  text-align:center;
-}
-`
+
+const Wrapper = styled.footer`
+  text-align: center;
+  h5{
+  margin-bottom:0;
+  color:#A6A6A6;
+  font-size:0.7rem;
+  }
+`;
 
 export default Footer
