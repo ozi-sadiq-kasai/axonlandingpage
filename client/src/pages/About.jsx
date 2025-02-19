@@ -21,7 +21,6 @@ const About = () => {
 
   return (
     <Wrapper>
-      {/* <Navbar /> */}
       <Mission />
     
       <Join />

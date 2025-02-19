@@ -91,7 +91,8 @@ const Questionnaire = () => {
         privacyConsent: false,
       });
   
-    } catch (error) {
+    } 
+    catch (error) {
       console.error("There was an error submitting the form:", error);
     }
   };
