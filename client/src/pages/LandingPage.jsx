@@ -1,7 +1,8 @@
-import Animation from '../components/animation/Animation';
-import styled, { keyframes } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import Animation from "../components/animation/Animation";
+import styled, { keyframes } from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import logo from "../assets/logo.png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -9,19 +10,17 @@ const LandingPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/about');
-    }, 7000);
+    }, 2300);
     return () => clearTimeout(timer);
   }, [navigate]);
 
   return (
     <Wrapper>
-      <h1 className='logo'>
-        AXON<span>LINK</span>
-      </h1>
-      <div className='hero-container'>
-        <div className='text-container'>
-          <h2 className='moto1'>Data for Everyone...</h2>
-          <h2 className='moto2'>Anywhere... Anytime...</h2>
+      <IMAGE src={logo} alt="logo" />
+      <div className="hero-container">
+        <div className="text-container">
+          <h2 className="moto1">Data for Everyone...</h2>
+          <h2 className="moto2">Anywhere... Anytime...</h2>
         </div>
         <Animation />
       </div>
@@ -56,7 +55,7 @@ const Opacity = keyframes`
 // Styled Wrapper
 const Wrapper = styled.section`
   height: 100vh;
-  padding: 0;
+  padding-left: 1rem;
 
   @media ${({ theme }) => theme.device.mobile} {
     overflow: hidden;
@@ -100,7 +99,7 @@ const Wrapper = styled.section`
     font-size: 2.2rem;
     font-weight: 500;
     padding-left: 12rem;
-    animation: ${Opacity} 4s ease-in;
+    animation: ${Opacity} 2s ease-in;
     color: var(--grey-400);
     @media ${({ theme }) => theme.device.mobile} {
       font-size: 1.4rem;
@@ -111,18 +110,16 @@ const Wrapper = styled.section`
       padding-left: 10rem;
     }
   }
-
-  .logo {
-    padding: 5px 0 0 5px;
-    color: var(--highlights2);
-    font-size: 2rem;
-    span {
-      color: var(--grey-400);
-    }
-    @media ${({ theme }) => theme.device.mobile} {
-      font-size: 1rem;
-    }
+  `;
+  const IMAGE = styled.img`
+  width: 15%;
+  color: var(--highlights2);
+  font-size: 1rem;
+  span {
+    color: var(--grey-400);
   }
-`;
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 1rem;
+  }`
 
 export default LandingPage;
