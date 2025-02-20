@@ -8,7 +8,7 @@ const NavBar = () => {
       <img src={Logo} alt="logo" className="img" />
       <NavLinks>
         <li>
-        <Link to="/about">About</Link>
+          <Link to="/about">About</Link>
         </li>
         <li>
           <Link to="/questionnaire">Questionnaire</Link>
@@ -21,10 +21,10 @@ const NavBar = () => {
   );
 };
 const Wrapper = styled.section`
-position:fixed;
-background-color:white;
-width:100%;
-z-index:1000;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  z-index: 1000;
   display: flex;
   gap: 1px;
   justify-content: space-between;
@@ -44,6 +44,9 @@ const NavLinks = styled.ul`
     color: var(--black);
     font-size: 1rem;
     font-weight: 400;
+  }
+  a:hover {
+  color:#A6A6A6;
   }
   @media ${({ theme }) => theme.device.max.mobile} {
     flex: 1;
