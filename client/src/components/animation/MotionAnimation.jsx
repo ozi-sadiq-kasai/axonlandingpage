@@ -24,7 +24,7 @@ export default function MotionAnimation() {
       scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
     function autoScroll() {
-      scrollPos += 1;
+      scrollPos += 2.2
       if (scrollPos >= scrollWidth) {
         scrollPos = 0;
       }
