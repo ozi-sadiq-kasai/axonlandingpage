@@ -24,8 +24,8 @@ const About = () => {
 
 const Wrapper = styled.section`
   padding: 8rem  3rem 0 3rem;
-  @media ${({ theme }) => theme.device.max.mobile} {
-    padding: 0 0.5rem;
+  @media ${({ theme }) => theme.device.range.small} {
+    padding: 4rem 0.5rem;
   }
 `;
 

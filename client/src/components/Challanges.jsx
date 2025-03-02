@@ -102,6 +102,7 @@ const Wrapper = styled.section`
     @media ${({ theme }) => theme.device.min.tablet} {
       font-size: 3rem;
     }
+ 
   }
 `;
 
@@ -113,6 +114,11 @@ const StyledList = styled.ul`
   column-gap: 3rem;
   row-gap: 1rem;
   justify-content: center;
+ @media ${({ theme }) => theme.device.range.small} {
+     grid-template-columns: repeat(1, 1fr);
+     column-gap:0rem
+     row-gap:0rem
+    }  
   div {
     display: flex;
     align-items: center;
@@ -124,6 +130,7 @@ const StyledList = styled.ul`
         font-size: 1.9rem;
       }
     }
+   
   }
   li {
     border: 2px solid var(--grey-300);
@@ -157,9 +164,16 @@ const StyledList = styled.ul`
   }
   li.animate-left {
     transform: translateX(20px);
+     @media ${({ theme }) => theme.device.range.small} {
+     transform:translateY(5px)
+     }
+    
   }
   li.animate-right {
     transform: translateX(-20px);
+       @media ${({ theme }) => theme.device.range.small} {
+     transform:translateY(5px)
+     }
   }
 `;
 
