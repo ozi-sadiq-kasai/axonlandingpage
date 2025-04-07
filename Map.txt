@@ -1,0 +1,160 @@
+To make the clickable map of Nigeria work in React, you can follow these steps:
+
+1. **Create a React component** for the map.
+2. **Import the SVG map** of Nigeria (either as an inline SVG or as a separate file).
+3. **Add interactivity** using React's `onClick` event handler.
+4. **Open a new tab** when a state is clicked.
+
+Here’s an example implementation:
+
+---
+
+### Step 1: Set Up a React Project
+If you don’t already have a React project, create one using `create-react-app`:
+
+```bash
+npx create-react-app nigeria-map
+cd nigeria-map
+```
+
+---
+
+### Step 2: Create the Map Component
+
+Create a new file called `NigeriaMap.js` in the `src` folder:
+
+```javascript
+import React from 'react';
+
+const NigeriaMap = () => {
+  // Function to handle state clicks
+  const handleStateClick = (stateName) => {
+    const url = `https://en.wikipedia.org/wiki/${stateName}`; // Example URL
+    window.open(url, '_blank'); // Open in a new tab
+  };
+
+  return (
+    <div>
+      <h1>Clickable Map of Nigeria</h1>
+      <p>Click on any state to open more information in a new tab.</p>
+
+      {/* Inline SVG Map of Nigeria */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+        {/* Example paths for states (replace with actual SVG paths) */}
+        <path
+          id="lagos"
+          d="M100,200 L150,200 L150,250 L100,250 Z"
+          fill="#4CAF50"
+          stroke="#fff"
+          strokeWidth="1"
+          onClick={() => handleStateClick('Lagos')}
+          style={{ cursor: 'pointer' }}
+        />
+        <path
+          id="abuja"
+          d="M200,200 L250,200 L250,250 L200,250 Z"
+          fill="#4CAF50"
+          stroke="#fff"
+          strokeWidth="1"
+          onClick={() => handleStateClick('Abuja')}
+          style={{ cursor: 'pointer' }}
+        />
+        <path
+          id="kano"
+          d="M300,200 L350,200 L350,250 L300,250 Z"
+          fill="#4CAF50"
+          stroke="#fff"
+          strokeWidth="1"
+          onClick={() => handleStateClick('Kano')}
+          style={{ cursor: 'pointer' }}
+        />
+        {/* Add more states here */}
+      </svg>
+    </div>
+  );
+};
+
+export default NigeriaMap;
+```
+
+---
+
+### Step 3: Use the Map Component in `App.js`
+
+Open `src/App.js` and replace its content with the following:
+
+```javascript
+import React from 'react';
+import NigeriaMap from './NigeriaMap';
+
+function App() {
+  return (
+    <div className="App">
+      <NigeriaMap />
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+### Step 4: Add Styling (Optional)
+
+You can add CSS to style the map. Create a file called `NigeriaMap.css` in the `src` folder:
+
+```css
+/* NigeriaMap.css */
+path {
+  fill: #4CAF50;
+  stroke: #fff;
+  stroke-width: 1px;
+  transition: fill 0.3s;
+}
+
+path:hover {
+  fill: #45a049;
+  cursor: pointer;
+}
+```
+
+Then, import the CSS file in `NigeriaMap.js`:
+
+```javascript
+import React from 'react';
+import './NigeriaMap.css'; // Import the CSS file
+
+const NigeriaMap = () => {
+  // ... rest of the component code
+};
+```
+
+---
+
+### Step 5: Run the Application
+
+Start the development server:
+
+```bash
+npm start
+```
+
+Open your browser and navigate to `http://localhost:3000`. You should see the map, and clicking on a state will open a new tab with the corresponding Wikipedia page.
+
+---
+
+### Notes:
+1. **Replace the SVG Paths**: The example uses placeholder paths (`d` attribute). Replace them with the actual SVG paths for each state in Nigeria.
+2. **Customize URLs**: Modify the `handleStateClick` function to open custom URLs or pages for each state.
+3. **Use an External SVG**: If you have an external SVG file, you can import it and use it in your component. For example:
+   ```javascript
+   import { ReactComponent as NigeriaSvg } from './nigeria-map.svg';
+   ```
+   Then, replace the `<svg>` element with:
+   ```javascript
+   <NigeriaSvg />
+   ```
+   Make sure each state in the SVG has an `onClick` handler.
+
+Let me know if you need further assistance!
